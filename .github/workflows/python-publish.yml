@@ -154,6 +154,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/checksum.txt
-        asset_name: pytorch_extra_mhirano-${{ github.ref_name }}-checksum.txt
+        asset_path: dist/checksums.txt
+        asset_name: pytorch_extra_mhirano-${{ github.ref_name }}-checksums.txt
         asset_content_type: text/plain
