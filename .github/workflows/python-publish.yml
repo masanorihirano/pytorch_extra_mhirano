@@ -82,8 +82,8 @@ jobs:
         uses: actions/setup-python@v2.2.2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Sleep for 120 seconds
-        run: sleep 120s
+      - name: Sleep for 300 seconds
+        run: sleep 300s
         shell: bash
       - name: Install test package
         run: |
@@ -119,6 +119,15 @@ jobs:
     - name: release
       run: |
         poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+    - name: Create release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
     - name: Upload assets
       uses: actions/upload-artifact@v2
       with:
