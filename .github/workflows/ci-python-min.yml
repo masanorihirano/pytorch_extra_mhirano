@@ -6,7 +6,7 @@ name: CI-min
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ dev ]
+    branches: [ dev, release/* ]
   pull_request:
     branches: [ dev, release/* ]
 
