@@ -15,3 +15,5 @@ jobs:
      - run: git checkout ${{ github.event.pull_request.head.ref }}
      - run: git tag `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
      - run: git push origin `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
+     - run: git branch -d ${{ github.event.pull_request.head.ref }}
+     - run: git push --delete  
