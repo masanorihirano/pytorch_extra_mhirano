@@ -136,8 +136,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/pytorch_extra_mhirano-${{ github.event.inputs.tag }}.tar.gz
-        asset_name: pytorch_extra_mhirano-${{ github.event.inputs.tag }}.tar.gz
+        asset_path: dist/pytorch_extra_mhirano-${{ github.event.inputs.tags }}.tar.gz
+        asset_name: pytorch_extra_mhirano-${{ github.event.inputs.tags }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload whl
       uses: actions/upload-release-asset@v1
@@ -145,8 +145,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/pytorch_extra_mhirano-${{ github.event.inputs.tag }}-py3-none-any.whl
-        asset_name: pytorch_extra_mhirano-${{ github.event.inputs.tag }}-py3-none-any.whl
+        asset_path: dist/pytorch_extra_mhirano-${{ github.event.inputs.tags }}-py3-none-any.whl
+        asset_name: pytorch_extra_mhirano-${{ github.event.inputs.tags }}-py3-none-any.whl
         asset_content_type: application/x-pywheel+zip
     - name: Upload checksum
       uses: actions/upload-release-asset@v1
@@ -155,5 +155,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: dist/checksum.txt
-        asset_name: pytorch_extra_mhirano-${{ github.event.inputs.tag }}-checksum.txt
+        asset_name: pytorch_extra_mhirano-${{ github.event.inputs.tags }}-checksum.txt
         asset_content_type: text/plain
