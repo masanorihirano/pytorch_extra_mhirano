@@ -118,16 +118,30 @@ jobs:
       run: |
         poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
     - name: Create release
+      id: create_release
       uses: actions/create-release@v1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        release_name: ${{ github.ref }}
         draft: false
         prerelease: false
-    - name: Upload assets
-      uses: actions/upload-artifact@v2
+    - name: Upload tar.gz
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: pytorch_extra_mhirano
-        path: dist/*
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/pytorch_extra_mhirano-${GITHUB_REF##*/}.tar.gz
+        asset_name: pytorch_extra_mhirano-${GITHUB_REF##*/}.tar.gz
+        asset_content_type: application/gzip
+    - name: Upload whl
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dist/pytorch_extra_mhirano-${GITHUB_REF##*/}-py3-none-any.whl
+        asset_name: pytorch_extra_mhirano-${GITHUB_REF##*/}-py3-none-any.whl
+        asset_content_type: application/x-pywheel+zip
