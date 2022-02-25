@@ -92,7 +92,7 @@ jobs:
           rm -r pytorch_extra_mhirano
       - name: Test
         run: |
-          poetry run pytest tests/
+          pytest tests/
           
   release:
     name: release
