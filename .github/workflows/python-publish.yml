@@ -82,6 +82,9 @@ jobs:
         uses: actions/setup-python@v2.2.2
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Sleep for 120 seconds
+        run: sleep 120s
+        shell: bash
       - name: Install test package
         run: |
           python -m pip install -f https://test.pypi.org/simple/pytorch-extra-mhirano/ pytorch-extra-mhirano==${GITHUB_REF##*/}
