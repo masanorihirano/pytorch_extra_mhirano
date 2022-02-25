@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "pytorch_extra_mhirano"
-version = "0.0.14"
+version = "0.0.15"
 description = ""
 authors = ["Masanori HIRANO <masa.hirano.1996@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
-torch = ">=1.9.0"
+torch = ">=1.9.0,<2.0.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
