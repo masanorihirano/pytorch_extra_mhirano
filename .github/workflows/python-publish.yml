@@ -64,7 +64,7 @@ jobs:
         poetry install
     - name: test release
       run: |
-        poetry config repositories.testpypi https://test.pypi.org/legacy/
+        poetry config repositories.pytorch-extra-mhirano https://test.pypi.org/legacy/
         poetry publish --build -r testpypi --username __token__ --password ${{ secrets.TEST_PYPI_TOKEN }}
   
   releasetestcheck:
