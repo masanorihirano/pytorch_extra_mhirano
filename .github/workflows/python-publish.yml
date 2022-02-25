@@ -119,3 +119,8 @@ jobs:
     - name: release
       run: |
         poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+    - name: Upload assets
+      uses: actions/upload-artifact@v2
+      with:
+        name: pytorch_extra_mhirano
+        path: dist/*
