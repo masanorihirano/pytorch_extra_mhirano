@@ -77,8 +77,8 @@ class DotProductAttention(nn.Module):
             self.fc_k = self.fc_q
             self.fc_v = self.fc_k
         else:
-            self.fc_k = nn.Linear(self.kdim, self.output_dim, bias=add_bias_kv)
-            self.fc_v = nn.Linear(self.vdim, self.output_dim, bias=add_bias_kv)
+            self.fc_k = nn.Linear(self.kdim, self.output_dim, bias=self.add_bias_kv)
+            self.fc_v = nn.Linear(self.vdim, self.output_dim, bias=self.add_bias_kv)
         self.dropout: nn.Module = nn.Dropout(p=dropout)
         self.softmax: nn.Module = nn.Softmax(dim=2)
 
