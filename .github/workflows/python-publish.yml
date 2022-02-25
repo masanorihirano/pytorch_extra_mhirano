@@ -84,7 +84,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install test package
         run: |
-          python -m pip install -i https://test.pypi.org/simple/ pytorch-extra-mhirano==${GITHUB_REF##*/}
+          python -m pip install -f https://test.pypi.org/simple/pytorch-extra-mhirano/ pytorch-extra-mhirano==${GITHUB_REF##*/}
           rm -r pytorch-extra-mhirano
       - name: Test
         run: |
