@@ -92,4 +92,27 @@ jobs:
           poetry run isort --check --force-single-line-imports --quiet .
           poetry run mypy .
           poetry run pytest tests/
-    
+          
+  release:
+    name: release
+    needs: releasetestcheck
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9']
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2.2.2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip setuptools wheel
+        python -m pip install poetry
+        poetry install
+    - name: release
+      run: |
+        poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
