@@ -12,7 +12,10 @@ jobs:
    steps:
       - name: Get the version
         id: get_version
-        run: echo ::set-output name=VERSION::$(echo ${{ github.event.pull_request.head.ref}} | cut -d / -f 3)
+        run: |
+          echo $SOURCE_VERSION | cut -d / -f 3
+        env:
+          SOURCE_VERSION: ${{ github.event.pull_request.head.ref }}
       - name: Echo tag
         run: echo ${{ steps.get_version.outputs.VERSION }}
       - name: Tag commit
