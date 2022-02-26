@@ -18,6 +18,7 @@ jobs:
            SOURCE_VERSION: ${{ github.event.pull_request.head.ref }}
        - name: Echo tag
          run: echo ${{ steps.get_version.outputs.TAG }}
+       - uses: actions/checkout@v2
        - name: Tag commit
          run: |
            git config --global user.email "masa.hirano.1996@gmail.com"
@@ -111,7 +112,7 @@ jobs:
           
   release:
     name: release
-    needs: releasetestcheck
+    needs: [releasetestcheck, tagging]
     runs-on: ubuntu-latest
     strategy:
       matrix:
