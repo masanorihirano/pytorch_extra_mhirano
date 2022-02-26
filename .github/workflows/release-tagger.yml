@@ -26,6 +26,7 @@ jobs:
            git checkout main
            git tag -a `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'` -m " " -m 'This release is automatically generated. Please see the pull request. ${{ github.event.pull_request.html_url }}'
            git push origin `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
+  
   test:
     # The type of runner that the job will run on
     name: final test
