@@ -13,8 +13,7 @@ jobs:
       - name: Get the version
         id: get_version
         run: |
-          echo $SOURCE_VERSION
-          echo $SOURCE_VERSION | cut -d / -f 3
+          echo $SOURCE_VERSION | cut -d / -f 2
         env:
           SOURCE_VERSION: ${{ github.event.pull_request.head.ref }}
       - name: Echo tag
