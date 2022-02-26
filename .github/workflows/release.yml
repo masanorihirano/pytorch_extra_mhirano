@@ -24,13 +24,15 @@ jobs:
            git config --global user.name "Masanori HIRANO"
            git fetch origin ${{ github.event.pull_request.head.ref }}
            git checkout main
-           git tag -a `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'` -m " " -m 'This release is automatically generated. Please see the pull request. ${{ github.event.pull_request.html_url }}'
+           git tag -a `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'` -m " "
            git push origin `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
+           git push --delete origin ${{ github.event.pull_request.head.ref }}
   
   test:
     # The type of runner that the job will run on
     name: final test
     runs-on:  ${{ matrix.platform }}
+    needs: tagging
     strategy:
       max-parallel: 15
       matrix:
@@ -92,6 +94,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Get the version
+        id: get_version
+        run: |
+          echo ::set-output name=TAG::`echo $SOURCE_VERSION | cut -d / -f 2`
+        env:
+          SOURCE_VERSION: ${{ github.event.pull_request.head.ref }}
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2.2.2
@@ -119,6 +127,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Get the version
+      id: get_version
+      run: |
+        echo ::set-output name=TAG::`echo $SOURCE_VERSION | cut -d / -f 2`
+      env:
+        SOURCE_VERSION: ${{ github.event.pull_request.head.ref }}
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2.2.2
@@ -142,6 +156,10 @@ jobs:
         release_name: ${{ steps.get_version.outputs.TAG }}
         draft: false
         prerelease: false
+        body: |
+          This release is automatically generated.
+          Please see the pull request.
+          [${{ github.event.pull_request.html_url }}](${{ github.event.pull_request.html_url }})
     - name: Generate checksum
       run: |
         cd dist; sha256sum * > checksums.txt; cd -
