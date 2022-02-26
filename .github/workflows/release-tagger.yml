@@ -18,15 +18,14 @@ jobs:
            SOURCE_VERSION: ${{ github.event.pull_request.head.ref }}
        - name: Echo tag
          run: echo ${{ steps.get_version.outputs.TAG }}
-       - name: Tag commit
-         run: |
+       - uses: actions/checkout@v2
+       - run: |
            git config --global user.email "masa.hirano.1996@gmail.com"
            git config --global user.name "Masanori HIRANO"
            git fetch origin ${{ github.event.pull_request.head.ref }}
            git checkout main
            git tag -a `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'` -m " " -m 'This release is automatically generated. Please see the pull request. ${{ github.event.pull_request.html_url }}'
            run: git push origin `echo '${{ github.event.pull_request.head.ref }}' | sed 's/release\///'`
-           run: git push --delete origin ${{ github.event.pull_request.head.ref }}
   test:
     # The type of runner that the job will run on
     name: final test
@@ -111,7 +110,7 @@ jobs:
           
   release:
     name: release
-    needs: releasetestcheck
+    needs: [releasetestcheck, tagging]
     runs-on: ubuntu-latest
     strategy:
       matrix:
