@@ -13,6 +13,7 @@ class TestDotProductionAttention:
         ones = torch.ones([1, 2, 10])
         result, attn = layer.forward(query=ones, key=ones, value=ones)
         assert_close(attn, torch.ones([1, 2, 2]) * 0.5)
+        assert result.size() == torch.Size([1, 2, 10])
 
     def test__init__2(self) -> None:
         with pytest.raises(AssertionError):
@@ -29,6 +30,7 @@ class TestDotProductionAttention:
         ones = torch.ones([2, 1, 10])
         result, attn = layer.forward(query=ones, key=ones, value=ones)
         assert_close(attn, torch.ones([1, 2, 2]) * 0.5)
+        assert result.size() == torch.Size([2, 1, 10])
 
 
 class TestSelfAttention:
@@ -37,6 +39,7 @@ class TestSelfAttention:
         ones = torch.ones([1, 2, 10])
         result, attn = layer.forward(ones)
         assert_close(attn, torch.ones([1, 2, 2]) * 0.5)
+        assert result.size() == torch.Size([1, 2, 10])
 
     def test__init__2(self) -> None:
         with pytest.raises(AssertionError):
@@ -53,6 +56,7 @@ class TestSelfAttention:
         ones = torch.ones([2, 1, 10])
         result, attn = layer.forward(ones)
         assert_close(attn, torch.ones([1, 2, 2]) * 0.5)
+        assert result.size() == torch.Size([2, 1, 10])
 
 
 class TestSelfMultiheadAttention:
@@ -61,9 +65,11 @@ class TestSelfMultiheadAttention:
         ones = torch.ones([1, 2, 10])
         result, attn = layer.forward(ones)
         assert_close(attn, torch.ones([1, 2, 2]) * 0.5)
+        assert result.size() == torch.Size([1, 2, 10])
 
     def test__init__batch_first_false(self) -> None:
         layer = SelfMultiheadAttention(embed_dim=10, num_heads=2, batch_first=False)
         ones = torch.ones([2, 1, 10])
         result, attn = layer.forward(ones)
         assert_close(attn, torch.ones([1, 2, 2]) * 0.5)
+        assert result.size() == torch.Size([2, 1, 10])
