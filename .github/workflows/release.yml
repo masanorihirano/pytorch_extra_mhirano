@@ -113,6 +113,7 @@ jobs:
           python -m pip install -f https://test.pypi.org/simple/pytorch-extra-mhirano/ pytorch-extra-mhirano==${{ steps.get_version.outputs.TAG }}
           python -m pip install pytest
           rm -r pytorch_extra_mhirano
+          rm pyproject.toml
       - name: Test
         run: |
           pytest tests/
