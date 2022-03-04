@@ -11,12 +11,18 @@ __all__ = ["DotProductAttention", "SelfAttention", "SelfMultiheadAttention"]
 
 
 class DotProductAttention(nn.Module):
-    r"""DotProductAttention.
+    """DotProductAttention.
+
     .. math::
-        \text{DotProductAttention}(Q, K, V) = softmax(qk^T)v
-        q = QW_1 + b_1
-        k = KW_2 + b_2
-        v = VW_3 + b_3
+
+        \mathrm{DotProductAttention}(Q, K, V) &=& \mathrm{softmax}(qk^T) v
+
+        q &=& QW_1 + b_1
+
+        k &=& KW_2 + b_2
+
+        v &=& VW_3 + b_3
+
     Args:
         qdim: dimension of the model, i.e., dimension of Q
         hidden_dim: dimension of hidden layer, i.e., dimension of q, k, v. Default: 512
@@ -30,6 +36,7 @@ class DotProductAttention(nn.Module):
         vdim: total number of features in key. Default: None.
         Note: if kdim and vdim are None, they will be set to embed_dim such that
         query, key, and value have the same number of features.
+
     Examples::
         >>> attn = DotProductAttention(query_dim)
         >>> attn_output, attn_output_weights = attn(query, key, value)

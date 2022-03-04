@@ -52,3 +52,7 @@ publish:
 .PHONY: test-publish
 test-publish:
 	@poetry publish --build -r testpypi
+
+.PHONY: doc
+doc:
+	@cd docs && make html
