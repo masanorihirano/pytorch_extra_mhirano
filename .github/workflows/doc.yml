@@ -9,11 +9,11 @@ on:
 jobs:
   doc:
     runs-on:  ${{ matrix.platform }}
-      strategy:
-        max-parallel: 15
-        matrix:
-          platform: [ubuntu-latest]
-          python-version: [3.9]
+    strategy:
+      max-parallel: 15
+      matrix:
+        platform: [ubuntu-latest]
+        python-version: [3.9]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
