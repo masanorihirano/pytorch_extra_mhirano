@@ -55,4 +55,4 @@ test-publish:
 
 .PHONY: doc
 doc:
-	$(RUN) sphinx-build docs docs/_build
+	@cd docs && make html
