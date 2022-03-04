@@ -22,7 +22,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          sudo apt-get install -y python3-sphinx
           python -m pip install --upgrade pip setuptools wheel
           python -m pip install poetry
           poetry install
