@@ -25,7 +25,6 @@ class DotProductAttention(nn.Module):
 
     Args:
         qdim: dimension of the model, i.e., dimension of Q
-        hidden_dim: dimension of hidden layer, i.e., dimension of q, k, v. Default: 512
         output_dim: dimension of output layer, i.e., dimension of output. Default: None
         dropout: a Dropout layer on attn_output_weights. Default: 0.0.
         transform: q = Q, k = K, v = V if it is False. Default: True
@@ -34,8 +33,11 @@ class DotProductAttention(nn.Module):
         add_bias_kv: add bias to the key and value sequences at dim=0.
         kdim: total number of features in key. Default: None.
         vdim: total number of features in key. Default: None.
-        Note: if kdim and vdim are None, they will be set to embed_dim such that
-        query, key, and value have the same number of features.
+            Note: if kdim and vdim are None, they will be set to embed_dim such that
+                query, key, and value have the same number of features.
+        batch_first: If ``True``, then the input and output tensors are provided
+            as (batch, seq, feature). Default: ``False`` (seq, batch, feature)
+        scaled: If ``True``, this performs as scaled dot product attention
 
     Examples::
         >>> attn = DotProductAttention(query_dim)
@@ -208,6 +210,22 @@ class DotProductAttention(nn.Module):
 
 
 class SelfAttention:
+    """Self Attention module using DotProductAttention
+
+    Args:
+        qdim: dimension of the model, i.e., dimension of Q
+        dropout: a Dropout layer on attn_output_weights. Default: 0.0.
+        transform: q = Q, k = K, v = V if it is False. Default: True
+        bias: add bias as module parameter. Default: True.
+        same_embd: W1 = W2 = W3, b1 = b2 = b3 if it is True. Default: True
+        add_bias_kv: add bias to the key and value sequences at dim=0.
+        kdim: total number of features in key. Default: None.
+        vdim: total number of features in key. Default: None.
+        batch_first: If ``True``, then the input and output tensors are provided
+            as (batch, seq, feature). Default: ``False`` (seq, batch, feature)
+        scaled: If ``True``, this performs as scaled dot product attention
+    """
+
     def __init__(
         self,
         qdim: int,
@@ -251,6 +269,23 @@ class SelfAttention:
 
 
 class SelfMultiheadAttention:
+    """Self Attention module using torch.nn.MultiheadAttention
+
+    Args:
+        embed_dim: dimension of the model, i.e., dimension of Q
+        num_heads: Number of parallel attention heads. Note that ``embed_dim`` will be split
+            across ``num_heads`` (i.e. each head will have dimension ``embed_dim // num_heads``).
+        dropout: a Dropout layer on attn_output_weights. Default: 0.0.
+        bias: add bias as module parameter. Default: True.
+        add_bias_kv: add bias to the key and value sequences at dim=0.
+        add_zero_attn: If specified, adds a new batch of zeros to the key and value sequences at dim=1.
+            Default: ``False``.
+        kdim: total number of features in key. Default: None.
+        vdim: total number of features in key. Default: None.
+        batch_first: If ``True``, then the input and output tensors are provided
+            as (batch, seq, feature). Default: ``False`` (seq, batch, feature)
+    """
+
     def __init__(
         self,
         embed_dim: int,
