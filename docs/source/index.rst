@@ -5,21 +5,21 @@
 
 :github_url: https://github.com/masanorihirano/pytorch_extra_mhirano
 
-pytorch_extra_mhirano documentation
+pytorch_extra_mhirano
 =================================================
+pytorch_extra_mhirano (pem) is a collection of supplementary components of PyTorch.
 
+Install:
 
+.. code-block:: none
+
+   pip install pytorch-extra-mhirano
+   python
+   >> import pytorch_extra_mhirano as pem
+
+|
 
 .. toctree::
-   :maxdepth: 4
-   :caption: Contents:
+   :maxdepth: 2
 
-   pytorch_extra_mhirano
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   reference/index
