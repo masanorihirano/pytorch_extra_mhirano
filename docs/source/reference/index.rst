@@ -52,3 +52,10 @@ nn.sum
 
     nn.SumLayer
 
+expreimental.variance_decomposition
+~~~~~~~~~~~~~~~~~~
+.. autosummary::
+    :toctree: generated/
+
+    experimental.variance_decomposition
+
