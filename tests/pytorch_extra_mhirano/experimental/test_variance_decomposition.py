@@ -35,15 +35,15 @@ def test_variance_decomposition_1(
     if zero_intercept:
         assert_close(intercept, torch.zeros_like(intercept))
     model = LinearRegression(fit_intercept=not zero_intercept)
-    x = inputs.reshape(size[0], -1).numpy()
-    y = target.reshape(-1).numpy()
+    x = inputs.reshape(size[0], -1).cpu().numpy()
+    y = target.reshape(-1).cpu().numpy()
     model.fit(x, y)
     assert_close(
-        intercept, torch.Tensor([model.intercept_], device=device), atol=1e-3, rtol=1e-3
+        intercept, torch.Tensor([model.intercept_]).to(device), atol=1e-3, rtol=1e-3
     )
     assert_close(
         coefficient,
-        torch.Tensor(model.coef_, device=device).reshape(coefficient.size()),
+        torch.Tensor(model.coef_).to(device).reshape(coefficient.size()),
         atol=1e-3,
         rtol=1e-3,
     )
@@ -59,7 +59,6 @@ def test_variance_decomposition_1_gpu(size: List[int], zero_intercept: bool) -> 
 
 
 class TestVarianceDecomposition:
-    @pytest.mark.gpu
     @pytest.mark.parametrize(
         "size", [(4, None, 2), (8, 2, 3), (4, None, 3), (32, 5, 6)]
     )
@@ -83,18 +82,81 @@ class TestVarianceDecomposition:
         target = torch.rand([size[0], 1]).to(device)
         vd.forward(inputs=inputs, targets=target)
         model = LinearRegression(fit_intercept=not zero_intercept)
-        x = inputs.reshape(size[0], -1).numpy()
-        y = target.reshape(-1).numpy()
+        x = inputs.reshape(size[0], -1).cpu().numpy()
+        y = target.reshape(-1).cpu().numpy()
         model.fit(x, y)
         assert_close(
             vd.intercept,
-            torch.Tensor([model.intercept_], device=device),
+            torch.Tensor([model.intercept_]).to(device),
             atol=1e-3,
             rtol=1e-3,
         )
         assert_close(
             vd.coefficient,
-            torch.Tensor(model.coef_, device=device).reshape(vd.coefficient.size()),
+            torch.Tensor(model.coef_).to(device).reshape(vd.coefficient.size()),
             atol=1e-3,
             rtol=1e-3,
+        )
+
+    @pytest.mark.parametrize(
+        "size", [(4, None, 2), (8, 2, 3), (4, None, 3), (32, 5, 6)]
+    )
+    @pytest.mark.parametrize("zero_intercept", [True, False])
+    def test__init__gpu(
+        self, size: Tuple[int, Optional[int], int], zero_intercept: bool
+    ) -> None:
+        self.test__init__(
+            size=size, zero_intercept=zero_intercept, device=torch.device("cuda")
+        )
+
+    @pytest.mark.prototype
+    @pytest.mark.parametrize(
+        "size", [(100, None, 2), (100, 2, 3), (30, None, 3), (300, 5, 6)]
+    )
+    @pytest.mark.parametrize("zero_intercept", [True, False])
+    @pytest.mark.parametrize("n_batch", [2, 10, 100, 1000])
+    def test2(
+        self,
+        size: Tuple[int, Optional[int], int],
+        zero_intercept: bool,
+        n_batch: int,
+        device: torch.device = torch.device("cpu"),
+    ) -> None:
+        batch_size, input_len, input_dim = size
+        vd = VarianceDecomposition(
+            inputs_dim=input_dim, inputs_len=input_len, zero_intercept=zero_intercept
+        )
+        assert vd.inputs_len == input_len
+        assert vd.inputs_dim == input_dim
+        vd.to(device)
+        torch.manual_seed(42)
+        inputs_all = []
+        targets_all = []
+        for _ in range(n_batch):
+            _size: List[int] = [x for x in size if x]
+            inputs = torch.rand(_size)
+            target = torch.rand([size[0], 1])
+            inputs_all.append(inputs)
+            targets_all.append(target)
+        for inputs, target in zip(inputs_all, targets_all):
+            inputs = inputs.to(device)
+            target = target.to(device)
+            vd.forward(inputs=inputs, targets=target)
+        inputs_all_ = torch.cat(inputs_all, dim=0)
+        targets_all_ = torch.cat(targets_all, dim=0)
+        model = LinearRegression(fit_intercept=not zero_intercept)
+        x = inputs_all_.reshape(size[0] * n_batch, -1).numpy()
+        y = targets_all_.reshape(-1).numpy()
+        model.fit(x, y)
+        assert_close(
+            vd.intercept,
+            torch.Tensor([model.intercept_], device=device),
+            atol=1e-2,
+            rtol=1e-2,
+        )
+        assert_close(
+            vd.coefficient,
+            torch.Tensor(model.coef_, device=device).reshape(vd.coefficient.size()),
+            atol=1e-2,
+            rtol=1e-2,
         )
