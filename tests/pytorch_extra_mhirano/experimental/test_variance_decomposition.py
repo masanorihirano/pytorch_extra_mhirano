@@ -2,6 +2,7 @@ from typing import List
 
 import pytest
 import torch
+from sklearn.linear_model import LinearRegression
 from torch.testing import assert_close
 
 from pytorch_extra_mhirano.experimental.variance_decomposition import (
@@ -9,7 +10,7 @@ from pytorch_extra_mhirano.experimental.variance_decomposition import (
 )
 
 
-@pytest.mark.parametrize("size", [[4, 2], [8, 2, 3], [4, 3], [30, 5, 6]])
+@pytest.mark.parametrize("size", [[4, 2], [8, 2, 3], [4, 3], [32, 5, 6]])
 @pytest.mark.parametrize("zero_intercept", [True, False])
 def test_variance_decomposition_1(
     size: List[int], zero_intercept: bool, device: torch.device = torch.device("cpu")
@@ -28,6 +29,13 @@ def test_variance_decomposition_1(
     assert_close(target.reshape(-1), pred, rtol=1e-3, atol=1e-3)
     if zero_intercept:
         assert_close(intercept, torch.zeros_like(intercept))
+    model = LinearRegression(fit_intercept=not zero_intercept)
+    x = inputs.reshape(size[0], -1).numpy()
+    y = target.reshape(-1).numpy()
+    model.fit(x, y)
+    assert_close(
+        intercept, torch.Tensor([model.intercept_], device=device), atol=1e-3, rtol=1e-3
+    )
 
 
 @pytest.mark.gpu

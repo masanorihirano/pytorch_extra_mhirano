@@ -1,10 +1,7 @@
-import warnings
 from typing import Optional
 from typing import Tuple
-from typing import Union
 
 import torch
-import torch.nn as nn
 
 
 def variance_decomposition(
@@ -30,6 +27,9 @@ def variance_decomposition(
     if targets.size() != torch.Size([batch_size, 1]):
         raise ValueError("targets have to be (batch size) x 1")
     _inputs = inputs.reshape(batch_size, -1)
+    total_param_dim = _inputs.size(1) + (0 if zero_intercept else 1)
+    if batch_size < total_param_dim:
+        raise AssertionError("batch_size is too small to fit.")
     if not zero_intercept:
         _inputs = torch.cat([torch.ones_like(_inputs[:, :1]), _inputs], dim=-1)
     torch_coefficient, _, _, _ = torch.linalg.lstsq(_inputs, targets, rcond=rcond)
