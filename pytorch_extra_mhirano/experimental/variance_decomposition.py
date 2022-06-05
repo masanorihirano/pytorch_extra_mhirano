@@ -1,7 +1,10 @@
+import warnings
 from typing import Optional
 from typing import Tuple
+from typing import Union
 
 import torch
+import torch.nn as nn
 
 
 def variance_decomposition(
@@ -45,3 +48,82 @@ def variance_decomposition(
         torch_coefficient[0:1].reshape(-1),
         torch_coefficient[1:].reshape(other_shape),
     )
+
+
+class VarianceDecomposition(nn.Module):
+    def __init__(
+        self,
+        inputs_dim: int,
+        inputs_len: Optional[int] = None,
+        zero_intercept: bool = False,
+        momentum: Optional[float] = None,
+    ):
+        super(VarianceDecomposition, self).__init__()
+        warnings.warn(
+            "VarianceDecomposition module is under development. This API could be changed in future."
+        )
+        self.inputs_dim = inputs_dim
+        self.inputs_len = inputs_len
+        self.zero_intercept = zero_intercept
+        self.register_buffer("intercept", torch.zeros(1))
+        _coefficient_size: Union[int, Tuple[int, int]]
+        if self.inputs_len:
+            _coefficient_size = (self.inputs_len, self.inputs_dim)
+        else:
+            _coefficient_size = self.inputs_dim
+        self.register_buffer("coefficient", torch.zeros(_coefficient_size))
+        self.momentum = momentum
+        self.update_count: int = 0
+
+    def update_param(
+        self, sample_intercept: torch.Tensor, sample_coefficient: torch.Tensor
+    ) -> None:
+        self.update_count += 1
+        momentum: float
+        if self.momentum:
+            momentum = self.momentum
+        else:
+            momentum = (self.update_count - 1) / self.update_count
+        self.intercept = momentum * self.intercept + (1 - momentum) * sample_intercept
+        self.coefficient = (
+            momentum * self.coefficient + (1 - momentum) * sample_coefficient
+        )
+
+    def forward(
+        self,
+        inputs: torch.Tensor,
+        targets: Optional[torch.Tensor] = None,
+        rcond: Optional[float] = None,
+    ) -> Tuple[Optional[torch.Tensor], torch.Tensor]:
+        """
+
+        Args:
+            inputs:
+            targets:
+            rcond:
+
+        Returns:
+            residual:
+            model prediction:
+
+        Notes: Under developing
+        """
+        if self.training:
+            if targets is None:
+                raise ValueError(
+                    "targets is required for training. Please set targets or change to eval"
+                )
+            sample_res, sample_intercept, sample_coefficient = variance_decomposition(
+                inputs=inputs,
+                targets=targets,
+                rcond=rcond,
+                zero_intercept=self.zero_intercept,
+            )
+            self.update_param(
+                sample_intercept=sample_intercept, sample_coefficient=sample_coefficient
+            )
+        pred = (inputs * self.coefficient).reshape(inputs.size(0), -1).sum(
+            dim=-1, keepdim=True
+        ) + self.intercept
+        global_res = (targets - pred) if targets is not None else None
+        return global_res, pred
