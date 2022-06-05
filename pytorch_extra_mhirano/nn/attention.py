@@ -209,7 +209,7 @@ class DotProductAttention(nn.Module):
         return mask
 
 
-class SelfAttention:
+class SelfAttention(nn.Module):
     """Self Attention module using DotProductAttention
 
     Args:
@@ -233,12 +233,13 @@ class SelfAttention:
         transform: bool = True,
         bias: bool = True,
         same_embd: bool = True,
-        add_bias_kv: bool = False,
+        add_bias_kv: Optional[bool] = None,
         kdim: Optional[int] = None,
         vdim: Optional[int] = None,
         batch_first: bool = True,
         scaled: bool = False,
     ) -> None:
+        super(SelfAttention, self).__init__()
         self.attn = DotProductAttention(
             qdim=qdim,
             output_dim=qdim,
@@ -258,17 +259,19 @@ class SelfAttention:
         inputs: torch.Tensor,
         key_padding_mask: Optional[torch.Tensor] = None,
         attn_mask: Optional[torch.Tensor] = None,
-    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        need_weights: bool = True,
+    ) -> Tuple[torch.Tensor, Optional[torch.Tensor]]:
         return self.attn.forward(
             inputs,
             inputs,
             inputs,
             key_padding_mask=key_padding_mask,
             attn_mask=attn_mask,
+            need_weights=need_weights,
         )
 
 
-class SelfMultiheadAttention:
+class SelfMultiheadAttention(nn.Module):
     """Self Attention module using torch.nn.MultiheadAttention
 
     Args:
@@ -292,14 +295,15 @@ class SelfMultiheadAttention:
         num_heads: int,
         dropout: float = 0.0,
         bias: bool = True,
-        add_bias_kv: bool = False,
+        add_bias_kv: Optional[bool] = None,
         add_zero_attn: bool = False,
         kdim: Optional[int] = None,
         vdim: Optional[int] = None,
-        batch_first: bool = False,
+        batch_first: bool = True,
         device: Optional[Union[torch.device, str]] = None,
         dtype: Optional[torch.dtype] = None,
     ) -> None:
+        super(SelfMultiheadAttention, self).__init__()
         self.attn = nn.MultiheadAttention(
             embed_dim=embed_dim,
             num_heads=num_heads,
