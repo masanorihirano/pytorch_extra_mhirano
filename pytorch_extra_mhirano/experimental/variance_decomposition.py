@@ -56,7 +56,6 @@ class VarianceDecomposition(nn.Module):
         inputs_dim: int,
         inputs_len: Optional[int] = None,
         zero_intercept: bool = False,
-        momentum: Optional[float] = None,
     ):
         super(VarianceDecomposition, self).__init__()
         warnings.warn(
@@ -66,28 +65,51 @@ class VarianceDecomposition(nn.Module):
         self.inputs_len = inputs_len
         self.zero_intercept = zero_intercept
         self.register_buffer("intercept", torch.zeros(1))
-        _coefficient_size: Union[int, Tuple[int, int]]
+        self.params_dim_for_solver = 0 if zero_intercept else 1
+        self.coefficient_size: Union[int, Tuple[int, int]]
         if self.inputs_len:
-            _coefficient_size = (self.inputs_len, self.inputs_dim)
+            self.coefficient_size = (self.inputs_len, self.inputs_dim)
+            self.params_dim_for_solver += self.inputs_dim * self.inputs_len
         else:
-            _coefficient_size = self.inputs_dim
-        self.register_buffer("coefficient", torch.zeros(_coefficient_size))
-        self.momentum = momentum
-        self.update_count: int = 0
+            self.coefficient_size = self.inputs_dim
+            self.params_dim_for_solver += self.inputs_dim
+        self.register_buffer("coefficient", torch.zeros(self.coefficient_size))
+        # (X_1^T X_1 + X_2^T X_2 + ...) A = X_1^T X_1 A_1 + X_2^T X_2 A_2 + ...
+        # X_left := X_1^T X_1 + X_2^T X_2 + ...
+        # X_right := X_1^T X_1 A_1 + X_2^T X_2 A_2 + ...
+        self.register_buffer(
+            "X_left",
+            torch.zeros(self.params_dim_for_solver, self.params_dim_for_solver),
+        )
+        self.register_buffer("X_right", torch.zeros(self.params_dim_for_solver, 1))
 
     def update_param(
-        self, sample_intercept: torch.Tensor, sample_coefficient: torch.Tensor
+        self,
+        sample_intercept: torch.Tensor,
+        sample_coefficient: torch.Tensor,
+        inputs: torch.Tensor,
     ) -> None:
-        self.update_count += 1
-        momentum: float
-        if self.momentum:
-            momentum = self.momentum
+        if self.zero_intercept:
+            Ai = sample_coefficient.reshape(self.params_dim_for_solver, 1)
         else:
-            momentum = (self.update_count - 1) / self.update_count
-        self.intercept = momentum * self.intercept + (1 - momentum) * sample_intercept
-        self.coefficient = (
-            momentum * self.coefficient + (1 - momentum) * sample_coefficient
+            Ai = torch.cat(
+                [sample_intercept, sample_coefficient.reshape(-1)], dim=0
+            ).reshape(self.params_dim_for_solver, 1)
+        if not self.zero_intercept:
+            inputs = inputs.reshape(-1, self.params_dim_for_solver - 1)
+            inputs = torch.cat([torch.ones_like(inputs[:, :1]), inputs], dim=-1)
+        _inputs = inputs.reshape(-1, self.params_dim_for_solver)
+        XiTXi = torch.mm(_inputs.T, _inputs)
+        self.X_left = self.X_left + XiTXi
+        self.X_right = self.X_right + torch.mm(XiTXi, Ai)
+        A = torch.mm(self.X_left.inverse(), self.X_right).reshape(
+            self.params_dim_for_solver
         )
+        if not self.zero_intercept:
+            self.intercept = A[:1]
+            self.coefficient = A[1:].reshape(self.coefficient_size)
+        else:
+            self.coefficient = A[:].reshape(self.coefficient_size)
 
     def forward(
         self,
@@ -120,7 +142,9 @@ class VarianceDecomposition(nn.Module):
                 zero_intercept=self.zero_intercept,
             )
             self.update_param(
-                sample_intercept=sample_intercept, sample_coefficient=sample_coefficient
+                sample_intercept=sample_intercept,
+                sample_coefficient=sample_coefficient,
+                inputs=inputs,
             )
         pred = (inputs * self.coefficient).reshape(inputs.size(0), -1).sum(
             dim=-1, keepdim=True

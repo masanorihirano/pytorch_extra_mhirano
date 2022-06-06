@@ -111,7 +111,7 @@ class TestVarianceDecomposition:
 
     @pytest.mark.prototype
     @pytest.mark.parametrize(
-        "size", [(100, None, 2), (100, 2, 3), (30, None, 3), (300, 5, 6)]
+        "size", [(4, None, 2), (8, 2, 3), (4, None, 3), (32, 5, 6)]
     )
     @pytest.mark.parametrize("zero_intercept", [True, False])
     @pytest.mark.parametrize("n_batch", [2, 10, 100, 1000])
