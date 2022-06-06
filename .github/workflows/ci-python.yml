@@ -44,4 +44,4 @@ jobs:
           poetry run black --check --diff --quiet --skip-magic-trailing-comma .
           poetry run isort --check --force-single-line-imports --quiet .
           poetry run mypy .
-          poetry run pytest tests/
+          poetry run pytest -m "not gpu" tests/
