@@ -49,14 +49,15 @@ def test_variance_decomposition_1(
     )
 
 
-# @pytest.mark.gpu
-# @pytest.mark.parametrize("size", [[4, 2], [8, 2, 3], [4, 3], [32, 5, 6]])
-# @pytest.mark.parametrize("zero_intercept", [True, False])
-# def test_variance_decomposition_1_gpu(size: List[int], zero_intercept: bool) -> None:
-#     test_variance_decomposition_1(
-#         size=size, zero_intercept=zero_intercept, device=torch.device("cuda")
-#     )
-#
+@pytest.mark.gpu
+@pytest.mark.parametrize("size", [[4, 2], [8, 2, 3], [4, 3], [32, 5, 6]])
+@pytest.mark.parametrize("zero_intercept", [True, False])
+def test_variance_decomposition_1_gpu(size: List[int], zero_intercept: bool) -> None:
+    test_variance_decomposition_1(
+        size=size, zero_intercept=zero_intercept, device=torch.device("cuda")
+    )
+
+
 #
 # class TestVarianceDecomposition:
 #     @pytest.mark.parametrize("size", [(4, None, 2), (8, 2, 3)])
