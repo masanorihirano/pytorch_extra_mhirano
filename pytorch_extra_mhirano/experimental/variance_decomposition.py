@@ -56,6 +56,7 @@ class VarianceDecomposition(nn.Module):
         inputs_dim: int,
         inputs_len: Optional[int] = None,
         zero_intercept: bool = False,
+        momentum: Optional[float] = None,
     ):
         super(VarianceDecomposition, self).__init__()
         warnings.warn(
@@ -82,6 +83,7 @@ class VarianceDecomposition(nn.Module):
             torch.zeros(self.params_dim_for_solver, self.params_dim_for_solver),
         )
         self.register_buffer("X_right", torch.zeros(self.params_dim_for_solver, 1))
+        self.momentum: float = momentum if momentum else 1.0
 
     def update_param(
         self,
@@ -100,8 +102,8 @@ class VarianceDecomposition(nn.Module):
             inputs = torch.cat([torch.ones_like(inputs[:, :1]), inputs], dim=-1)
         _inputs = inputs.reshape(-1, self.params_dim_for_solver)
         XiTXi = torch.mm(_inputs.T, _inputs)
-        self.X_left = self.X_left + XiTXi
-        self.X_right = self.X_right + torch.mm(XiTXi, Ai)
+        self.X_left = self.momentum * self.X_left + XiTXi
+        self.X_right = self.momentum * self.X_right + torch.mm(XiTXi, Ai)
         A = torch.mm(self.X_left.inverse(), self.X_right).reshape(
             self.params_dim_for_solver
         )
