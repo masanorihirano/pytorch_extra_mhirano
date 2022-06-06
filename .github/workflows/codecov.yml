@@ -37,7 +37,7 @@ jobs:
         poetry install
     - name: make cov report
       run: |
-        poetry run pytest --cov=./　-m "not gpu" --cov-report=xml
+        poetry run pytest -m "not gpu" --cov=./ --cov-report=xml
     - uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
