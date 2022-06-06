@@ -1,0 +1,71 @@
+﻿pytorch\_extra\_mhirano.nn.LaplacianPyramidLayer
+================================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: LaplacianPyramidLayer
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~LaplacianPyramidLayer.__init__
+      ~LaplacianPyramidLayer.add_module
+      ~LaplacianPyramidLayer.apply
+      ~LaplacianPyramidLayer.bfloat16
+      ~LaplacianPyramidLayer.buffers
+      ~LaplacianPyramidLayer.children
+      ~LaplacianPyramidLayer.cpu
+      ~LaplacianPyramidLayer.cuda
+      ~LaplacianPyramidLayer.double
+      ~LaplacianPyramidLayer.eval
+      ~LaplacianPyramidLayer.extra_repr
+      ~LaplacianPyramidLayer.float
+      ~LaplacianPyramidLayer.forward
+      ~LaplacianPyramidLayer.get_buffer
+      ~LaplacianPyramidLayer.get_extra_state
+      ~LaplacianPyramidLayer.get_parameter
+      ~LaplacianPyramidLayer.get_submodule
+      ~LaplacianPyramidLayer.half
+      ~LaplacianPyramidLayer.load_state_dict
+      ~LaplacianPyramidLayer.modules
+      ~LaplacianPyramidLayer.named_buffers
+      ~LaplacianPyramidLayer.named_children
+      ~LaplacianPyramidLayer.named_modules
+      ~LaplacianPyramidLayer.named_parameters
+      ~LaplacianPyramidLayer.parameters
+      ~LaplacianPyramidLayer.register_backward_hook
+      ~LaplacianPyramidLayer.register_buffer
+      ~LaplacianPyramidLayer.register_forward_hook
+      ~LaplacianPyramidLayer.register_forward_pre_hook
+      ~LaplacianPyramidLayer.register_full_backward_hook
+      ~LaplacianPyramidLayer.register_module
+      ~LaplacianPyramidLayer.register_parameter
+      ~LaplacianPyramidLayer.requires_grad_
+      ~LaplacianPyramidLayer.set_extra_state
+      ~LaplacianPyramidLayer.share_memory
+      ~LaplacianPyramidLayer.state_dict
+      ~LaplacianPyramidLayer.to
+      ~LaplacianPyramidLayer.to_empty
+      ~LaplacianPyramidLayer.train
+      ~LaplacianPyramidLayer.type
+      ~LaplacianPyramidLayer.xpu
+      ~LaplacianPyramidLayer.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~LaplacianPyramidLayer.T_destination
+      ~LaplacianPyramidLayer.dump_patches
+      ~LaplacianPyramidLayer.training
+   
+   

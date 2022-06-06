@@ -1,0 +1,71 @@
+﻿pytorch\_extra\_mhirano.nn.SumLayer
+===================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: SumLayer
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SumLayer.__init__
+      ~SumLayer.add_module
+      ~SumLayer.apply
+      ~SumLayer.bfloat16
+      ~SumLayer.buffers
+      ~SumLayer.children
+      ~SumLayer.cpu
+      ~SumLayer.cuda
+      ~SumLayer.double
+      ~SumLayer.eval
+      ~SumLayer.extra_repr
+      ~SumLayer.float
+      ~SumLayer.forward
+      ~SumLayer.get_buffer
+      ~SumLayer.get_extra_state
+      ~SumLayer.get_parameter
+      ~SumLayer.get_submodule
+      ~SumLayer.half
+      ~SumLayer.load_state_dict
+      ~SumLayer.modules
+      ~SumLayer.named_buffers
+      ~SumLayer.named_children
+      ~SumLayer.named_modules
+      ~SumLayer.named_parameters
+      ~SumLayer.parameters
+      ~SumLayer.register_backward_hook
+      ~SumLayer.register_buffer
+      ~SumLayer.register_forward_hook
+      ~SumLayer.register_forward_pre_hook
+      ~SumLayer.register_full_backward_hook
+      ~SumLayer.register_module
+      ~SumLayer.register_parameter
+      ~SumLayer.requires_grad_
+      ~SumLayer.set_extra_state
+      ~SumLayer.share_memory
+      ~SumLayer.state_dict
+      ~SumLayer.to
+      ~SumLayer.to_empty
+      ~SumLayer.train
+      ~SumLayer.type
+      ~SumLayer.xpu
+      ~SumLayer.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SumLayer.T_destination
+      ~SumLayer.dump_patches
+      ~SumLayer.training
+   
+   

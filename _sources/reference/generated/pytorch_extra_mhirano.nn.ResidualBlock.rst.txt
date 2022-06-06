@@ -1,0 +1,71 @@
+﻿pytorch\_extra\_mhirano.nn.ResidualBlock
+========================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: ResidualBlock
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ResidualBlock.__init__
+      ~ResidualBlock.add_module
+      ~ResidualBlock.apply
+      ~ResidualBlock.bfloat16
+      ~ResidualBlock.buffers
+      ~ResidualBlock.children
+      ~ResidualBlock.cpu
+      ~ResidualBlock.cuda
+      ~ResidualBlock.double
+      ~ResidualBlock.eval
+      ~ResidualBlock.extra_repr
+      ~ResidualBlock.float
+      ~ResidualBlock.forward
+      ~ResidualBlock.get_buffer
+      ~ResidualBlock.get_extra_state
+      ~ResidualBlock.get_parameter
+      ~ResidualBlock.get_submodule
+      ~ResidualBlock.half
+      ~ResidualBlock.load_state_dict
+      ~ResidualBlock.modules
+      ~ResidualBlock.named_buffers
+      ~ResidualBlock.named_children
+      ~ResidualBlock.named_modules
+      ~ResidualBlock.named_parameters
+      ~ResidualBlock.parameters
+      ~ResidualBlock.register_backward_hook
+      ~ResidualBlock.register_buffer
+      ~ResidualBlock.register_forward_hook
+      ~ResidualBlock.register_forward_pre_hook
+      ~ResidualBlock.register_full_backward_hook
+      ~ResidualBlock.register_module
+      ~ResidualBlock.register_parameter
+      ~ResidualBlock.requires_grad_
+      ~ResidualBlock.set_extra_state
+      ~ResidualBlock.share_memory
+      ~ResidualBlock.state_dict
+      ~ResidualBlock.to
+      ~ResidualBlock.to_empty
+      ~ResidualBlock.train
+      ~ResidualBlock.type
+      ~ResidualBlock.xpu
+      ~ResidualBlock.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ResidualBlock.T_destination
+      ~ResidualBlock.dump_patches
+      ~ResidualBlock.training
+   
+   

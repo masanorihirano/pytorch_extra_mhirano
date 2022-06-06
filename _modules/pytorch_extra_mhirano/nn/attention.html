@@ -7,26 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pytorch_extra_mhirano.nn.attention &#8212; pytorch_extra_mhirano  documentation</title>
     
-    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
     
-    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
@@ -40,7 +37,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -68,8 +65,8 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../../pytorch_extra_mhirano.html">
-  pytorch_extra_mhirano package
+ <a class="reference internal nav-link" href="../../../reference/index.html">
+  API Reference
  </a>
 </li>
 
@@ -140,7 +137,7 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DotProductAttention&quot;</span><span class="p">,</span> <span class="s2">&quot;SelfAttention&quot;</span><span class="p">,</span> <span class="s2">&quot;SelfMultiheadAttention&quot;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="DotProductAttention"><a class="viewcode-back" href="../../../pytorch_extra_mhirano.nn.html#pytorch_extra_mhirano.nn.attention.DotProductAttention">[docs]</a><span class="k">class</span> <span class="nc">DotProductAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="DotProductAttention"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.DotProductAttention.html#pytorch_extra_mhirano.nn.DotProductAttention">[docs]</a><span class="k">class</span> <span class="nc">DotProductAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;DotProductAttention.</span>
 
 <span class="sd">    .. math::</span>
@@ -155,7 +152,6 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        qdim: dimension of the model, i.e., dimension of Q</span>
-<span class="sd">        hidden_dim: dimension of hidden layer, i.e., dimension of q, k, v. Default: 512</span>
 <span class="sd">        output_dim: dimension of output layer, i.e., dimension of output. Default: None</span>
 <span class="sd">        dropout: a Dropout layer on attn_output_weights. Default: 0.0.</span>
 <span class="sd">        transform: q = Q, k = K, v = V if it is False. Default: True</span>
@@ -164,15 +160,18 @@
 <span class="sd">        add_bias_kv: add bias to the key and value sequences at dim=0.</span>
 <span class="sd">        kdim: total number of features in key. Default: None.</span>
 <span class="sd">        vdim: total number of features in key. Default: None.</span>
-<span class="sd">        Note: if kdim and vdim are None, they will be set to embed_dim such that</span>
-<span class="sd">        query, key, and value have the same number of features.</span>
+<span class="sd">            Note: if kdim and vdim are None, they will be set to embed_dim such that</span>
+<span class="sd">                query, key, and value have the same number of features.</span>
+<span class="sd">        batch_first: If ``True``, then the input and output tensors are provided</span>
+<span class="sd">            as (batch, seq, feature). Default: ``False`` (seq, batch, feature)</span>
+<span class="sd">        scaled: If ``True``, this performs as scaled dot product attention</span>
 
 <span class="sd">    Examples::</span>
 <span class="sd">        &gt;&gt;&gt; attn = DotProductAttention(query_dim)</span>
 <span class="sd">        &gt;&gt;&gt; attn_output, attn_output_weights = attn(query, key, value)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="DotProductAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.DotProductAttention.html#pytorch_extra_mhirano.nn.DotProductAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">qdim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">output_dim</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -216,16 +215,63 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">fc_k</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kdim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">add_bias_kv</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fc_v</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vdim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dim</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">add_bias_kv</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">dropout</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">softmax</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Softmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">softmax</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Softmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="DotProductAttention.forward"><a class="viewcode-back" href="../../../pytorch_extra_mhirano.nn.html#pytorch_extra_mhirano.nn.attention.DotProductAttention.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">query</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
         <span class="n">key</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
         <span class="n">value</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
         <span class="n">key_padding_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">need_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">attn_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+<span class="sd">            query: Query embeddings of shape :math:`(L, E_q)` for unbatched input, :math:`(L, N, E_q)` when ``batch_first=False``</span>
+<span class="sd">                or :math:`(N, L, E_q)` when ``batch_first=True``, where :math:`L` is the target sequence length,</span>
+<span class="sd">                :math:`N` is the batch size, and :math:`E_q` is the query embedding dimension ``embed_dim``.</span>
+<span class="sd">                Queries are compared against key-value pairs to produce the output.</span>
+<span class="sd">                See &quot;Attention Is All You Need&quot; for more details.</span>
+<span class="sd">            key: Key embeddings of shape :math:`(S, E_k)` for unbatched input, :math:`(S, N, E_k)` when ``batch_first=False``</span>
+<span class="sd">                or :math:`(N, S, E_k)` when ``batch_first=True``, where :math:`S` is the source sequence length,</span>
+<span class="sd">                :math:`N` is the batch size, and :math:`E_k` is the key embedding dimension ``kdim``.</span>
+<span class="sd">                See &quot;Attention Is All You Need&quot; for more details.</span>
+<span class="sd">            value: Value embeddings of shape :math:`(S, E_v)` for unbatched input, :math:`(S, N, E_v)` when</span>
+<span class="sd">                ``batch_first=False`` or :math:`(N, S, E_v)` when ``batch_first=True``, where :math:`S` is the source</span>
+<span class="sd">                sequence length, :math:`N` is the batch size, and :math:`E_v` is the value embedding dimension ``vdim``.</span>
+<span class="sd">                See &quot;Attention Is All You Need&quot; for more details.</span>
+<span class="sd">            key_padding_mask: If specified, a mask of shape :math:`(N, S)` indicating which elements within ``key``</span>
+<span class="sd">                to ignore for the purpose of attention (i.e. treat as &quot;padding&quot;). For unbatched `query`, shape should be :math:`(S)`.</span>
+<span class="sd">                Binary and byte masks are supported.</span>
+<span class="sd">                For a binary mask, a ``True`` value indicates that the corresponding ``key`` value will be ignored for</span>
+<span class="sd">                the purpose of attention. For a byte mask, a non-zero value indicates that the corresponding ``key``</span>
+<span class="sd">                value will be ignored.</span>
+<span class="sd">            need_weights: If specified, returns ``attn_output_weights`` in addition to ``attn_outputs``.</span>
+<span class="sd">                Default: ``True``.</span>
+<span class="sd">            attn_mask: If specified, a 2D or 3D mask preventing attention to certain positions. Must be of shape</span>
+<span class="sd">                :math:`(L, S)` or :math:`(N\cdot\text{num\_heads}, L, S)`, where :math:`N` is the batch size,</span>
+<span class="sd">                :math:`L` is the target sequence length, and :math:`S` is the source sequence length. A 2D mask will be</span>
+<span class="sd">                broadcasted across the batch while a 3D mask allows for a different mask for each entry in the batch.</span>
+<span class="sd">                Binary, byte, and float masks are supported. For a binary mask, a ``True`` value indicates that the</span>
+<span class="sd">                corresponding position is not allowed to attend. For a byte mask, a non-zero value indicates that the</span>
+<span class="sd">                corresponding position is not allowed to attend. For a float mask, the mask values will be added to</span>
+<span class="sd">                the attention weight.</span>
+
+<span class="sd">        Outputs:</span>
+<span class="sd">            - **attn_output** - Attention outputs of shape :math:`(L, E)` when input is unbatched,</span>
+<span class="sd">              :math:`(L, N, E)` when ``batch_first=False`` or :math:`(N, L, E)` when ``batch_first=True``,</span>
+<span class="sd">              where :math:`L` is the target sequence length, :math:`N` is the batch size, and :math:`E` is the</span>
+<span class="sd">              embedding dimension ``embed_dim``.</span>
+<span class="sd">            - **attn_output_weights** - Only returned when ``need_weights=True``. If ``average_attn_weights=True``,</span>
+<span class="sd">              returns attention weights averaged across heads of shape :math:`(L, S)` when input is unbatched or</span>
+<span class="sd">              :math:`(N, L, S)`, where :math:`N` is the batch size, :math:`L` is the target sequence length, and</span>
+<span class="sd">              :math:`S` is the source sequence length. If ``average_weights=False``, returns attention weights per</span>
+<span class="sd">              head of shape :math:`(num_heads, L, S)` when input is unbatched or :math:`(N, num_heads, L, S)`.</span>
+
+<span class="sd">            .. note::</span>
+<span class="sd">                `batch_first` argument is ignored for unbatched inputs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">key_padding_mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
                 <span class="s2">&quot;&#39;key_padding_mask&#39; in &#39;DotProductAttention&#39; is currently an experimental version.&quot;</span>
@@ -272,9 +318,12 @@
         <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">attn</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_first</span><span class="p">:</span>
             <span class="n">output</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">attn</span></div>
+        <span class="k">if</span> <span class="n">need_weights</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">attn</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="kc">None</span>
 
-<div class="viewcode-block" id="DotProductAttention.generate_square_subsequent_mask"><a class="viewcode-back" href="../../../pytorch_extra_mhirano.nn.html#pytorch_extra_mhirano.nn.attention.DotProductAttention.generate_square_subsequent_mask">[docs]</a>    <span class="k">def</span> <span class="nf">generate_square_subsequent_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sz</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">generate_square_subsequent_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sz</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate a square mask for the sequence. The masked positions are filled with float(&#39;-inf&#39;).</span>
 <span class="sd">        Unmasked positions are filled with float(0.0).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -284,11 +333,27 @@
             <span class="o">.</span><span class="n">masked_fill</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;-inf&quot;</span><span class="p">))</span>
             <span class="o">.</span><span class="n">masked_fill</span><span class="p">(</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
         <span class="p">)</span>
-        <span class="k">return</span> <span class="n">mask</span></div></div>
+        <span class="k">return</span> <span class="n">mask</span></div>
 
 
-<div class="viewcode-block" id="SelfAttention"><a class="viewcode-back" href="../../../pytorch_extra_mhirano.nn.html#pytorch_extra_mhirano.nn.attention.SelfAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="SelfAttention"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.SelfAttention.html#pytorch_extra_mhirano.nn.SelfAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Self Attention module using DotProductAttention</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        qdim: dimension of the model, i.e., dimension of Q</span>
+<span class="sd">        dropout: a Dropout layer on attn_output_weights. Default: 0.0.</span>
+<span class="sd">        transform: q = Q, k = K, v = V if it is False. Default: True</span>
+<span class="sd">        bias: add bias as module parameter. Default: True.</span>
+<span class="sd">        same_embd: W1 = W2 = W3, b1 = b2 = b3 if it is True. Default: True</span>
+<span class="sd">        add_bias_kv: add bias to the key and value sequences at dim=0.</span>
+<span class="sd">        kdim: total number of features in key. Default: None.</span>
+<span class="sd">        vdim: total number of features in key. Default: None.</span>
+<span class="sd">        batch_first: If ``True``, then the input and output tensors are provided</span>
+<span class="sd">            as (batch, seq, feature). Default: ``False`` (seq, batch, feature)</span>
+<span class="sd">        scaled: If ``True``, this performs as scaled dot product attention</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SelfAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.SelfAttention.html#pytorch_extra_mhirano.nn.SelfAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">qdim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
@@ -314,25 +379,44 @@
             <span class="n">vdim</span><span class="o">=</span><span class="n">vdim</span><span class="p">,</span>
             <span class="n">batch_first</span><span class="o">=</span><span class="n">batch_first</span><span class="p">,</span>
             <span class="n">scaled</span><span class="o">=</span><span class="n">scaled</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SelfAttention.forward"><a class="viewcode-back" href="../../../pytorch_extra_mhirano.nn.html#pytorch_extra_mhirano.nn.attention.SelfAttention.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">inputs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
         <span class="n">key_padding_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">attn_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="n">need_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">attn</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span>
             <span class="n">inputs</span><span class="p">,</span>
             <span class="n">inputs</span><span class="p">,</span>
             <span class="n">inputs</span><span class="p">,</span>
             <span class="n">key_padding_mask</span><span class="o">=</span><span class="n">key_padding_mask</span><span class="p">,</span>
             <span class="n">attn_mask</span><span class="o">=</span><span class="n">attn_mask</span><span class="p">,</span>
-        <span class="p">)</span></div></div>
+            <span class="n">need_weights</span><span class="o">=</span><span class="n">need_weights</span><span class="p">,</span>
+        <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SelfMultiheadAttention"><a class="viewcode-back" href="../../../pytorch_extra_mhirano.nn.html#pytorch_extra_mhirano.nn.attention.SelfMultiheadAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfMultiheadAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="SelfMultiheadAttention"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html#pytorch_extra_mhirano.nn.SelfMultiheadAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfMultiheadAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Self Attention module using torch.nn.MultiheadAttention</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        embed_dim: dimension of the model, i.e., dimension of Q</span>
+<span class="sd">        num_heads: Number of parallel attention heads. Note that ``embed_dim`` will be split</span>
+<span class="sd">            across ``num_heads`` (i.e. each head will have dimension ``embed_dim // num_heads``).</span>
+<span class="sd">        dropout: a Dropout layer on attn_output_weights. Default: 0.0.</span>
+<span class="sd">        bias: add bias as module parameter. Default: True.</span>
+<span class="sd">        add_bias_kv: add bias to the key and value sequences at dim=0.</span>
+<span class="sd">        add_zero_attn: If specified, adds a new batch of zeros to the key and value sequences at dim=1.</span>
+<span class="sd">            Default: ``False``.</span>
+<span class="sd">        kdim: total number of features in key. Default: None.</span>
+<span class="sd">        vdim: total number of features in key. Default: None.</span>
+<span class="sd">        batch_first: If ``True``, then the input and output tensors are provided</span>
+<span class="sd">            as (batch, seq, feature). Default: ``False`` (seq, batch, feature)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SelfMultiheadAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html#pytorch_extra_mhirano.nn.SelfMultiheadAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -359,9 +443,9 @@
             <span class="n">batch_first</span><span class="o">=</span><span class="n">batch_first</span><span class="p">,</span>
             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
             <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SelfMultiheadAttention.forward"><a class="viewcode-back" href="../../../pytorch_extra_mhirano.nn.html#pytorch_extra_mhirano.nn.attention.SelfMultiheadAttention.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">inputs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
         <span class="n">key_padding_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -375,7 +459,7 @@
             <span class="n">key_padding_mask</span><span class="o">=</span><span class="n">key_padding_mask</span><span class="p">,</span>
             <span class="n">need_weights</span><span class="o">=</span><span class="n">need_weights</span><span class="p">,</span>
             <span class="n">attn_mask</span><span class="o">=</span><span class="n">attn_mask</span><span class="p">,</span>
-        <span class="p">)</span></div></div>
+        <span class="p">)</span></div>
 </pre></div>
 
               </div>
@@ -391,8 +475,9 @@
       </div>
     </div>
   
-    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <footer class="footer mt-5 mt-md-0">
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
   <div class="container">
     
     <div class="footer-item">
@@ -403,7 +488,7 @@
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
     </div>
     

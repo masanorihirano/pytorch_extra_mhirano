@@ -1,0 +1,71 @@
+﻿pytorch\_extra\_mhirano.nn.SelfAttention
+========================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: SelfAttention
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SelfAttention.__init__
+      ~SelfAttention.add_module
+      ~SelfAttention.apply
+      ~SelfAttention.bfloat16
+      ~SelfAttention.buffers
+      ~SelfAttention.children
+      ~SelfAttention.cpu
+      ~SelfAttention.cuda
+      ~SelfAttention.double
+      ~SelfAttention.eval
+      ~SelfAttention.extra_repr
+      ~SelfAttention.float
+      ~SelfAttention.forward
+      ~SelfAttention.get_buffer
+      ~SelfAttention.get_extra_state
+      ~SelfAttention.get_parameter
+      ~SelfAttention.get_submodule
+      ~SelfAttention.half
+      ~SelfAttention.load_state_dict
+      ~SelfAttention.modules
+      ~SelfAttention.named_buffers
+      ~SelfAttention.named_children
+      ~SelfAttention.named_modules
+      ~SelfAttention.named_parameters
+      ~SelfAttention.parameters
+      ~SelfAttention.register_backward_hook
+      ~SelfAttention.register_buffer
+      ~SelfAttention.register_forward_hook
+      ~SelfAttention.register_forward_pre_hook
+      ~SelfAttention.register_full_backward_hook
+      ~SelfAttention.register_module
+      ~SelfAttention.register_parameter
+      ~SelfAttention.requires_grad_
+      ~SelfAttention.set_extra_state
+      ~SelfAttention.share_memory
+      ~SelfAttention.state_dict
+      ~SelfAttention.to
+      ~SelfAttention.to_empty
+      ~SelfAttention.train
+      ~SelfAttention.type
+      ~SelfAttention.xpu
+      ~SelfAttention.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SelfAttention.T_destination
+      ~SelfAttention.dump_patches
+      ~SelfAttention.training
+   
+   

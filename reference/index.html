@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>API Reference &#8212; pytorch_extra_mhirano  documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pytorch_extra_mhirano.nn.DotProductAttention" href="generated/pytorch_extra_mhirano.nn.DotProductAttention.html" />
+    <link rel="prev" title="pytorch_extra_mhirano" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">pytorch_extra_mhirano</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  API Reference
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.DotProductAttention.html">
+   pytorch_extra_mhirano.nn.DotProductAttention
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.SelfAttention.html">
+   pytorch_extra_mhirano.nn.SelfAttention
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html">
+   pytorch_extra_mhirano.nn.SelfMultiheadAttention
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.JSDivLoss.html">
+   pytorch_extra_mhirano.nn.JSDivLoss
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.KLDivLoss.html">
+   pytorch_extra_mhirano.nn.KLDivLoss
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.PositionalEncoding.html">
+   pytorch_extra_mhirano.nn.PositionalEncoding
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.LaplacianPyramidLayer.html">
+   pytorch_extra_mhirano.nn.LaplacianPyramidLayer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.PyramidDown.html">
+   pytorch_extra_mhirano.nn.PyramidDown
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.PyramidUp.html">
+   pytorch_extra_mhirano.nn.PyramidUp
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.ResidualBlock.html">
+   pytorch_extra_mhirano.nn.ResidualBlock
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.nn.SumLayer.html">
+   pytorch_extra_mhirano.nn.SumLayer
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="generated/pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition.html">
+   pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nn-attention">
+   nn.attention
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nn-loss">
+   nn.loss
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nn-pe">
+   nn.pe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nn-pyramid">
+   nn.pyramid
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nn-residual">
+   nn.residual
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nn-sum">
+   nn.sum
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimental-variance-decomposition">
+   experimental.variance_decomposition
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <span class="target" id="module-pytorch_extra_mhirano"></span><section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></p></li>
+</ul>
+<section id="nn-attention">
+<h2>nn.attention<a class="headerlink" href="#nn-attention" title="Permalink to this headline">#</a></h2>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.DotProductAttention.html#pytorch_extra_mhirano.nn.DotProductAttention" title="pytorch_extra_mhirano.nn.DotProductAttention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.DotProductAttention</span></code></a>(qdim[, output_dim, ...])</p></td>
+<td><p>DotProductAttention.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.SelfAttention.html#pytorch_extra_mhirano.nn.SelfAttention" title="pytorch_extra_mhirano.nn.SelfAttention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.SelfAttention</span></code></a>(qdim[, dropout, transform, ...])</p></td>
+<td><p>Self Attention module using DotProductAttention</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html#pytorch_extra_mhirano.nn.SelfMultiheadAttention" title="pytorch_extra_mhirano.nn.SelfMultiheadAttention"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.SelfMultiheadAttention</span></code></a>(embed_dim, num_heads)</p></td>
+<td><p>Self Attention module using torch.nn.MultiheadAttention</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nn-loss">
+<h2>nn.loss<a class="headerlink" href="#nn-loss" title="Permalink to this headline">#</a></h2>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.JSDivLoss.html#pytorch_extra_mhirano.nn.JSDivLoss" title="pytorch_extra_mhirano.nn.JSDivLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.JSDivLoss</span></code></a>([size_average, reduce, reduction])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.KLDivLoss.html#pytorch_extra_mhirano.nn.KLDivLoss" title="pytorch_extra_mhirano.nn.KLDivLoss"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.KLDivLoss</span></code></a>([size_average, reduce, reduction])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nn-pe">
+<h2>nn.pe<a class="headerlink" href="#nn-pe" title="Permalink to this headline">#</a></h2>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.PositionalEncoding.html#pytorch_extra_mhirano.nn.PositionalEncoding" title="pytorch_extra_mhirano.nn.PositionalEncoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.PositionalEncoding</span></code></a>(d_model[, dropout, ...])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nn-pyramid">
+<h2>nn.pyramid<a class="headerlink" href="#nn-pyramid" title="Permalink to this headline">#</a></h2>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.LaplacianPyramidLayer.html#pytorch_extra_mhirano.nn.LaplacianPyramidLayer" title="pytorch_extra_mhirano.nn.LaplacianPyramidLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.LaplacianPyramidLayer</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.PyramidDown.html#pytorch_extra_mhirano.nn.PyramidDown" title="pytorch_extra_mhirano.nn.PyramidDown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.PyramidDown</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.PyramidUp.html#pytorch_extra_mhirano.nn.PyramidUp" title="pytorch_extra_mhirano.nn.PyramidUp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.PyramidUp</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nn-residual">
+<h2>nn.residual<a class="headerlink" href="#nn-residual" title="Permalink to this headline">#</a></h2>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.ResidualBlock.html#pytorch_extra_mhirano.nn.ResidualBlock" title="pytorch_extra_mhirano.nn.ResidualBlock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.ResidualBlock</span></code></a>(input_dim[, bottleneck, ...])</p></td>
+<td><p>Residual Block If bottleneck=None, this is plain Residual Block with 2 FC layers (input_dim=&gt;input_dim=&gt;input_dim) and 2 activation layers.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nn-sum">
+<h2>nn.sum<a class="headerlink" href="#nn-sum" title="Permalink to this headline">#</a></h2>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.nn.SumLayer.html#pytorch_extra_mhirano.nn.SumLayer" title="pytorch_extra_mhirano.nn.SumLayer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nn.SumLayer</span></code></a>(dim)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="experimental-variance-decomposition">
+<h2>experimental.variance_decomposition<a class="headerlink" href="#experimental-variance-decomposition" title="Permalink to this headline">#</a></h2>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition.html#pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition" title="pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">experimental.variance_decomposition.variance_decomposition</span></code></a>(...)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param inputs</dt>
+<dd class="field-odd"><p>inputs data. B (batch size) x D (Dimension) or B (batch size) x L (input data length) x D (Dimension)</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">pytorch_extra_mhirano</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="generated/pytorch_extra_mhirano.nn.DotProductAttention.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pytorch_extra_mhirano.nn.DotProductAttention</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, Masanori HIRANO.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

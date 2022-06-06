@@ -1,0 +1,6 @@
+﻿pytorch\_extra\_mhirano.experimental.variance\_decomposition.variance\_decomposition
+====================================================================================
+
+.. currentmodule:: pytorch_extra_mhirano.experimental.variance_decomposition
+
+.. autofunction:: variance_decomposition

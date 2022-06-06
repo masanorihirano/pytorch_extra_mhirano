@@ -1,0 +1,72 @@
+﻿pytorch\_extra\_mhirano.nn.DotProductAttention
+==============================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: DotProductAttention
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~DotProductAttention.__init__
+      ~DotProductAttention.add_module
+      ~DotProductAttention.apply
+      ~DotProductAttention.bfloat16
+      ~DotProductAttention.buffers
+      ~DotProductAttention.children
+      ~DotProductAttention.cpu
+      ~DotProductAttention.cuda
+      ~DotProductAttention.double
+      ~DotProductAttention.eval
+      ~DotProductAttention.extra_repr
+      ~DotProductAttention.float
+      ~DotProductAttention.forward
+      ~DotProductAttention.generate_square_subsequent_mask
+      ~DotProductAttention.get_buffer
+      ~DotProductAttention.get_extra_state
+      ~DotProductAttention.get_parameter
+      ~DotProductAttention.get_submodule
+      ~DotProductAttention.half
+      ~DotProductAttention.load_state_dict
+      ~DotProductAttention.modules
+      ~DotProductAttention.named_buffers
+      ~DotProductAttention.named_children
+      ~DotProductAttention.named_modules
+      ~DotProductAttention.named_parameters
+      ~DotProductAttention.parameters
+      ~DotProductAttention.register_backward_hook
+      ~DotProductAttention.register_buffer
+      ~DotProductAttention.register_forward_hook
+      ~DotProductAttention.register_forward_pre_hook
+      ~DotProductAttention.register_full_backward_hook
+      ~DotProductAttention.register_module
+      ~DotProductAttention.register_parameter
+      ~DotProductAttention.requires_grad_
+      ~DotProductAttention.set_extra_state
+      ~DotProductAttention.share_memory
+      ~DotProductAttention.state_dict
+      ~DotProductAttention.to
+      ~DotProductAttention.to_empty
+      ~DotProductAttention.train
+      ~DotProductAttention.type
+      ~DotProductAttention.xpu
+      ~DotProductAttention.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~DotProductAttention.T_destination
+      ~DotProductAttention.dump_patches
+      ~DotProductAttention.training
+   
+   

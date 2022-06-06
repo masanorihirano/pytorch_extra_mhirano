@@ -1,0 +1,71 @@
+﻿pytorch\_extra\_mhirano.nn.PyramidDown
+======================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: PyramidDown
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PyramidDown.__init__
+      ~PyramidDown.add_module
+      ~PyramidDown.apply
+      ~PyramidDown.bfloat16
+      ~PyramidDown.buffers
+      ~PyramidDown.children
+      ~PyramidDown.cpu
+      ~PyramidDown.cuda
+      ~PyramidDown.double
+      ~PyramidDown.eval
+      ~PyramidDown.extra_repr
+      ~PyramidDown.float
+      ~PyramidDown.forward
+      ~PyramidDown.get_buffer
+      ~PyramidDown.get_extra_state
+      ~PyramidDown.get_parameter
+      ~PyramidDown.get_submodule
+      ~PyramidDown.half
+      ~PyramidDown.load_state_dict
+      ~PyramidDown.modules
+      ~PyramidDown.named_buffers
+      ~PyramidDown.named_children
+      ~PyramidDown.named_modules
+      ~PyramidDown.named_parameters
+      ~PyramidDown.parameters
+      ~PyramidDown.register_backward_hook
+      ~PyramidDown.register_buffer
+      ~PyramidDown.register_forward_hook
+      ~PyramidDown.register_forward_pre_hook
+      ~PyramidDown.register_full_backward_hook
+      ~PyramidDown.register_module
+      ~PyramidDown.register_parameter
+      ~PyramidDown.requires_grad_
+      ~PyramidDown.set_extra_state
+      ~PyramidDown.share_memory
+      ~PyramidDown.state_dict
+      ~PyramidDown.to
+      ~PyramidDown.to_empty
+      ~PyramidDown.train
+      ~PyramidDown.type
+      ~PyramidDown.xpu
+      ~PyramidDown.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~PyramidDown.T_destination
+      ~PyramidDown.dump_patches
+      ~PyramidDown.training
+   
+   

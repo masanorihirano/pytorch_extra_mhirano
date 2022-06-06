@@ -1,0 +1,71 @@
+﻿pytorch\_extra\_mhirano.nn.PyramidUp
+====================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: PyramidUp
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PyramidUp.__init__
+      ~PyramidUp.add_module
+      ~PyramidUp.apply
+      ~PyramidUp.bfloat16
+      ~PyramidUp.buffers
+      ~PyramidUp.children
+      ~PyramidUp.cpu
+      ~PyramidUp.cuda
+      ~PyramidUp.double
+      ~PyramidUp.eval
+      ~PyramidUp.extra_repr
+      ~PyramidUp.float
+      ~PyramidUp.forward
+      ~PyramidUp.get_buffer
+      ~PyramidUp.get_extra_state
+      ~PyramidUp.get_parameter
+      ~PyramidUp.get_submodule
+      ~PyramidUp.half
+      ~PyramidUp.load_state_dict
+      ~PyramidUp.modules
+      ~PyramidUp.named_buffers
+      ~PyramidUp.named_children
+      ~PyramidUp.named_modules
+      ~PyramidUp.named_parameters
+      ~PyramidUp.parameters
+      ~PyramidUp.register_backward_hook
+      ~PyramidUp.register_buffer
+      ~PyramidUp.register_forward_hook
+      ~PyramidUp.register_forward_pre_hook
+      ~PyramidUp.register_full_backward_hook
+      ~PyramidUp.register_module
+      ~PyramidUp.register_parameter
+      ~PyramidUp.requires_grad_
+      ~PyramidUp.set_extra_state
+      ~PyramidUp.share_memory
+      ~PyramidUp.state_dict
+      ~PyramidUp.to
+      ~PyramidUp.to_empty
+      ~PyramidUp.train
+      ~PyramidUp.type
+      ~PyramidUp.xpu
+      ~PyramidUp.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~PyramidUp.T_destination
+      ~PyramidUp.dump_patches
+      ~PyramidUp.training
+   
+   

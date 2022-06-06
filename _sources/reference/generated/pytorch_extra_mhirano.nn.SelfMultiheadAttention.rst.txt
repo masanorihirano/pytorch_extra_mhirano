@@ -1,0 +1,71 @@
+﻿pytorch\_extra\_mhirano.nn.SelfMultiheadAttention
+=================================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: SelfMultiheadAttention
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SelfMultiheadAttention.__init__
+      ~SelfMultiheadAttention.add_module
+      ~SelfMultiheadAttention.apply
+      ~SelfMultiheadAttention.bfloat16
+      ~SelfMultiheadAttention.buffers
+      ~SelfMultiheadAttention.children
+      ~SelfMultiheadAttention.cpu
+      ~SelfMultiheadAttention.cuda
+      ~SelfMultiheadAttention.double
+      ~SelfMultiheadAttention.eval
+      ~SelfMultiheadAttention.extra_repr
+      ~SelfMultiheadAttention.float
+      ~SelfMultiheadAttention.forward
+      ~SelfMultiheadAttention.get_buffer
+      ~SelfMultiheadAttention.get_extra_state
+      ~SelfMultiheadAttention.get_parameter
+      ~SelfMultiheadAttention.get_submodule
+      ~SelfMultiheadAttention.half
+      ~SelfMultiheadAttention.load_state_dict
+      ~SelfMultiheadAttention.modules
+      ~SelfMultiheadAttention.named_buffers
+      ~SelfMultiheadAttention.named_children
+      ~SelfMultiheadAttention.named_modules
+      ~SelfMultiheadAttention.named_parameters
+      ~SelfMultiheadAttention.parameters
+      ~SelfMultiheadAttention.register_backward_hook
+      ~SelfMultiheadAttention.register_buffer
+      ~SelfMultiheadAttention.register_forward_hook
+      ~SelfMultiheadAttention.register_forward_pre_hook
+      ~SelfMultiheadAttention.register_full_backward_hook
+      ~SelfMultiheadAttention.register_module
+      ~SelfMultiheadAttention.register_parameter
+      ~SelfMultiheadAttention.requires_grad_
+      ~SelfMultiheadAttention.set_extra_state
+      ~SelfMultiheadAttention.share_memory
+      ~SelfMultiheadAttention.state_dict
+      ~SelfMultiheadAttention.to
+      ~SelfMultiheadAttention.to_empty
+      ~SelfMultiheadAttention.train
+      ~SelfMultiheadAttention.type
+      ~SelfMultiheadAttention.xpu
+      ~SelfMultiheadAttention.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SelfMultiheadAttention.T_destination
+      ~SelfMultiheadAttention.dump_patches
+      ~SelfMultiheadAttention.training
+   
+   

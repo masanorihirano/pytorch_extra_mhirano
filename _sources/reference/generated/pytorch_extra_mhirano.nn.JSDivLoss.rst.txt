@@ -1,0 +1,72 @@
+﻿pytorch\_extra\_mhirano.nn.JSDivLoss
+====================================
+
+.. currentmodule:: pytorch_extra_mhirano.nn
+
+.. autoclass:: JSDivLoss
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~JSDivLoss.__init__
+      ~JSDivLoss.add_module
+      ~JSDivLoss.apply
+      ~JSDivLoss.bfloat16
+      ~JSDivLoss.buffers
+      ~JSDivLoss.children
+      ~JSDivLoss.cpu
+      ~JSDivLoss.cuda
+      ~JSDivLoss.double
+      ~JSDivLoss.eval
+      ~JSDivLoss.extra_repr
+      ~JSDivLoss.float
+      ~JSDivLoss.forward
+      ~JSDivLoss.get_buffer
+      ~JSDivLoss.get_extra_state
+      ~JSDivLoss.get_parameter
+      ~JSDivLoss.get_submodule
+      ~JSDivLoss.half
+      ~JSDivLoss.load_state_dict
+      ~JSDivLoss.modules
+      ~JSDivLoss.named_buffers
+      ~JSDivLoss.named_children
+      ~JSDivLoss.named_modules
+      ~JSDivLoss.named_parameters
+      ~JSDivLoss.parameters
+      ~JSDivLoss.register_backward_hook
+      ~JSDivLoss.register_buffer
+      ~JSDivLoss.register_forward_hook
+      ~JSDivLoss.register_forward_pre_hook
+      ~JSDivLoss.register_full_backward_hook
+      ~JSDivLoss.register_module
+      ~JSDivLoss.register_parameter
+      ~JSDivLoss.requires_grad_
+      ~JSDivLoss.set_extra_state
+      ~JSDivLoss.share_memory
+      ~JSDivLoss.state_dict
+      ~JSDivLoss.to
+      ~JSDivLoss.to_empty
+      ~JSDivLoss.train
+      ~JSDivLoss.type
+      ~JSDivLoss.xpu
+      ~JSDivLoss.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~JSDivLoss.T_destination
+      ~JSDivLoss.dump_patches
+      ~JSDivLoss.reduction
+      ~JSDivLoss.training
+   
+   
