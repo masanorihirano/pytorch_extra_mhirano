@@ -113,7 +113,7 @@ class TestVarianceDecomposition:
         "size", [(4, None, 2), (8, 2, 3), (4, None, 3), (32, 5, 6)]
     )
     @pytest.mark.parametrize("zero_intercept", [True, False])
-    @pytest.mark.parametrize("n_batch", [2, 10, 100, 1000])
+    @pytest.mark.parametrize("n_batch", [2, 10])
     def test2(
         self,
         size: Tuple[int, Optional[int], int],
