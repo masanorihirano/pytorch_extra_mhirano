@@ -39,7 +39,11 @@ def test_variance_decomposition_1(
     y = target.reshape(-1).cpu().numpy()
     model.fit(x, y)
     assert_close(
-        intercept, torch.Tensor([model.intercept_]).to(device), atol=1e-3, rtol=1e-3
+        intercept,
+        torch.Tensor([model.intercept_]).to(device),
+        atol=1e-3,
+        rtol=1e-3,
+        check_stride=False,
     )
     assert_close(
         coefficient,
