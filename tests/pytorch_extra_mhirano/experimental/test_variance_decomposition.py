@@ -15,7 +15,7 @@ from pytorch_extra_mhirano.experimental.variance_decomposition import (
 )
 
 
-@pytest.mark.parametrize("size", [[4, 2], [8, 2, 3], [4, 3], [32, 5, 6]])
+@pytest.mark.parametrize("size", [[4, 2], [8, 2, 3]])
 @pytest.mark.parametrize("zero_intercept", [True, False])
 def test_variance_decomposition_1(
     size: List[int], zero_intercept: bool, device: torch.device = torch.device("cpu")
@@ -59,9 +59,7 @@ def test_variance_decomposition_1_gpu(size: List[int], zero_intercept: bool) -> 
 
 
 class TestVarianceDecomposition:
-    @pytest.mark.parametrize(
-        "size", [(4, None, 2), (8, 2, 3), (4, None, 3), (32, 5, 6)]
-    )
+    @pytest.mark.parametrize("size", [(4, None, 2), (8, 2, 3)])
     @pytest.mark.parametrize("zero_intercept", [True, False])
     def test__init__(
         self,
@@ -109,11 +107,9 @@ class TestVarianceDecomposition:
             size=size, zero_intercept=zero_intercept, device=torch.device("cuda")
         )
 
-    @pytest.mark.parametrize(
-        "size", [(4, None, 2), (8, 2, 3), (4, None, 3), (32, 5, 6)]
-    )
+    @pytest.mark.parametrize("size", [(4, None, 2), (8, 2, 3)])
     @pytest.mark.parametrize("zero_intercept", [True, False])
-    @pytest.mark.parametrize("n_batch", [2, 10])
+    @pytest.mark.parametrize("n_batch", [3])
     def test2(
         self,
         size: Tuple[int, Optional[int], int],
