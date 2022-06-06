@@ -96,6 +96,9 @@ class VarianceDecomposition(nn.Module):
         sample_coefficient: torch.Tensor,
         inputs: torch.Tensor,
     ) -> None:
+        sample_intercept = sample_intercept.detach()
+        sample_coefficient = sample_coefficient.detach()
+        inputs = inputs.detach()
         if self.zero_intercept:
             Ai = sample_coefficient.reshape(self.params_dim_for_solver, 1)
         else:
