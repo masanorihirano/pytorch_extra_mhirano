@@ -1,8 +1,6 @@
-import warnings
 from typing import Optional
 
 import torch
-from torch.nn import _reduction as _Reduction
 from torch.nn import functional as F
 from torch.nn.modules.loss import _Loss
 
