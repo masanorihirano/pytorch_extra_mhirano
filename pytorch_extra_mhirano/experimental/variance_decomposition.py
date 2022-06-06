@@ -51,6 +51,11 @@ def variance_decomposition(
 
 
 class VarianceDecomposition(nn.Module):
+    X_left: torch.Tensor
+    X_right: torch.Tensor
+    intercept: torch.Tensor
+    coefficient: torch.Tensor
+
     def __init__(
         self,
         inputs_dim: int,

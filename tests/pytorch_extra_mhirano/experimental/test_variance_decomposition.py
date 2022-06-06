@@ -109,7 +109,6 @@ class TestVarianceDecomposition:
             size=size, zero_intercept=zero_intercept, device=torch.device("cuda")
         )
 
-    @pytest.mark.prototype
     @pytest.mark.parametrize(
         "size", [(4, None, 2), (8, 2, 3), (4, None, 3), (32, 5, 6)]
     )
@@ -150,13 +149,29 @@ class TestVarianceDecomposition:
         model.fit(x, y)
         assert_close(
             vd.intercept,
-            torch.Tensor([model.intercept_], device=device),
+            torch.Tensor([model.intercept_]).to(device),
             atol=1e-2,
             rtol=1e-2,
         )
         assert_close(
             vd.coefficient,
-            torch.Tensor(model.coef_, device=device).reshape(vd.coefficient.size()),
+            torch.Tensor(model.coef_).to(device).reshape(vd.coefficient.size()),
             atol=1e-2,
             rtol=1e-2,
+        )
+
+    @pytest.mark.gpu
+    @pytest.mark.parametrize(
+        "size", [(4, None, 2), (8, 2, 3), (4, None, 3), (32, 5, 6)]
+    )
+    @pytest.mark.parametrize("zero_intercept", [True, False])
+    @pytest.mark.parametrize("n_batch", [2, 10, 100, 1000])
+    def test2_gpu(
+        self, size: Tuple[int, Optional[int], int], zero_intercept: bool, n_batch: int
+    ) -> None:
+        self.test2(
+            size=size,
+            zero_intercept=zero_intercept,
+            n_batch=n_batch,
+            device=torch.device("cuda"),
         )
