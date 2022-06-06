@@ -1,10 +1,6 @@
 [tool.poetry]
 name = "pytorch_extra_mhirano"
-<<<<<<< HEAD
-version = "0.1.5"
-=======
 version = "0.1.6"
->>>>>>> 8f467c3e9f391813308c1ed645fc10c30c99cdac
 description = ""
 authors = ["Masanori HIRANO <masa.hirano.1996@gmail.com>"]
 license = "MIT"
