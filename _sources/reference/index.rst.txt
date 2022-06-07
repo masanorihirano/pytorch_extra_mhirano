@@ -1,14 +1,15 @@
 .. module:: pytorch_extra_mhirano
 
-API Reference
-=============
-
 * :ref:`genindex`
+
+API reference
+==================
 
 nn.attention
 ~~~~~~~~~~~~~~~~~~
 .. autosummary::
-    :toctree: generated/
+    :toctree: generated/nn/attention/
+    :recursive:
 
     nn.DotProductAttention
     nn.SelfAttention
@@ -17,7 +18,7 @@ nn.attention
 nn.loss
 ~~~~~~~~~~~~~~~~~~
 .. autosummary::
-    :toctree: generated/
+    :toctree: generated/nn/loss/
 
     nn.JSDivLoss
     nn.KLDivLoss
@@ -25,14 +26,14 @@ nn.loss
 nn.pe
 ~~~~~~~~~~~~~~~~~~
 .. autosummary::
-    :toctree: generated/
+    :toctree: generated/nn/pe/
 
     nn.PositionalEncoding
 
 nn.pyramid
 ~~~~~~~~~~~~~~~~~~
 .. autosummary::
-    :toctree: generated/
+    :toctree: generated/nn/pyramid/
 
     nn.LaplacianPyramidLayer
     nn.PyramidDown
@@ -41,21 +42,21 @@ nn.pyramid
 nn.residual
 ~~~~~~~~~~~~~~~~~~
 .. autosummary::
-    :toctree: generated/
+    :toctree: generated/nn/residual/
 
     nn.ResidualBlock
 
 nn.sum
 ~~~~~~~~~~~~~~~~~~
 .. autosummary::
-    :toctree: generated/
+    :toctree: generated/nn/sum/
 
     nn.SumLayer
 
 experimental.variance_decomposition
 ~~~~~~~~~~~~~~~~~~
 .. autosummary::
-    :toctree: generated/
+    :toctree: generated/experimental/variance_decomposition/
 
     experimental.variance_decomposition.variance_decomposition
-
+    experimental.variance_decomposition.VarianceDecomposition

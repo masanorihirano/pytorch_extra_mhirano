@@ -66,7 +66,7 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../../reference/index.html">
-  API Reference
+  API reference
  </a>
 </li>
 
@@ -131,14 +131,14 @@
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
 
-<div class="viewcode-block" id="ResidualBlock"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.ResidualBlock.html#pytorch_extra_mhirano.nn.ResidualBlock">[docs]</a><span class="k">class</span> <span class="nc">ResidualBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="ResidualBlock"><a class="viewcode-back" href="../../../reference/generated/nn/residual/pytorch_extra_mhirano.nn.ResidualBlock.html#pytorch_extra_mhirano.nn.ResidualBlock">[docs]</a><span class="k">class</span> <span class="nc">ResidualBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Residual Block</span>
 <span class="sd">    If bottleneck=None, this is plain Residual Block with 2 FC layers (input_dim=&gt;input_dim=&gt;input_dim) and 2 activation layers.</span>
 <span class="sd">    If bottleneck=x, this is bottleneck residual block with 3 FC layers(input_dim=&gt;x=&gt;input_dim) and 3 activation layers.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="ResidualBlock.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.ResidualBlock.html#pytorch_extra_mhirano.nn.ResidualBlock.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="ResidualBlock.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/residual/pytorch_extra_mhirano.nn.ResidualBlock.html#pytorch_extra_mhirano.nn.ResidualBlock.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">bottleneck</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>

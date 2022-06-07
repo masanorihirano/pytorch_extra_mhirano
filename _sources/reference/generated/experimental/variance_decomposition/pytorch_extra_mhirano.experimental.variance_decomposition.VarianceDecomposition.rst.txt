@@ -1,0 +1,87 @@
+﻿pytorch\_extra\_mhirano.experimental.variance\_decomposition.VarianceDecomposition
+==================================================================================
+
+.. currentmodule:: pytorch_extra_mhirano.experimental.variance_decomposition
+
+.. autoclass:: VarianceDecomposition
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~VarianceDecomposition.__init__
+      ~VarianceDecomposition.add_module
+      ~VarianceDecomposition.analysis_first_end
+      ~VarianceDecomposition.analysis_init
+      ~VarianceDecomposition.analysis_second_end
+      ~VarianceDecomposition.apply
+      ~VarianceDecomposition.bfloat16
+      ~VarianceDecomposition.buffers
+      ~VarianceDecomposition.children
+      ~VarianceDecomposition.cpu
+      ~VarianceDecomposition.cuda
+      ~VarianceDecomposition.double
+      ~VarianceDecomposition.enable_analysis_first_step
+      ~VarianceDecomposition.enable_analysis_second_step
+      ~VarianceDecomposition.eval
+      ~VarianceDecomposition.extra_repr
+      ~VarianceDecomposition.float
+      ~VarianceDecomposition.forward
+      ~VarianceDecomposition.get_buffer
+      ~VarianceDecomposition.get_extra_state
+      ~VarianceDecomposition.get_parameter
+      ~VarianceDecomposition.get_submodule
+      ~VarianceDecomposition.half
+      ~VarianceDecomposition.load_state_dict
+      ~VarianceDecomposition.modules
+      ~VarianceDecomposition.named_buffers
+      ~VarianceDecomposition.named_children
+      ~VarianceDecomposition.named_modules
+      ~VarianceDecomposition.named_parameters
+      ~VarianceDecomposition.parameters
+      ~VarianceDecomposition.register_backward_hook
+      ~VarianceDecomposition.register_buffer
+      ~VarianceDecomposition.register_forward_hook
+      ~VarianceDecomposition.register_forward_pre_hook
+      ~VarianceDecomposition.register_full_backward_hook
+      ~VarianceDecomposition.register_module
+      ~VarianceDecomposition.register_parameter
+      ~VarianceDecomposition.requires_grad_
+      ~VarianceDecomposition.set_extra_state
+      ~VarianceDecomposition.share_memory
+      ~VarianceDecomposition.state_dict
+      ~VarianceDecomposition.to
+      ~VarianceDecomposition.to_empty
+      ~VarianceDecomposition.train
+      ~VarianceDecomposition.type
+      ~VarianceDecomposition.update_param
+      ~VarianceDecomposition.xpu
+      ~VarianceDecomposition.zero_grad
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~VarianceDecomposition.T_destination
+      ~VarianceDecomposition.dump_patches
+      ~VarianceDecomposition.X_left
+      ~VarianceDecomposition.X_right
+      ~VarianceDecomposition.intercept
+      ~VarianceDecomposition.coefficient
+      ~VarianceDecomposition.ssr
+      ~VarianceDecomposition.ssr_lim
+      ~VarianceDecomposition.X_lefts_for_ssr
+      ~VarianceDecomposition.X_rights_for_ssr
+      ~VarianceDecomposition.As_for_ssr
+      ~VarianceDecomposition.N
+      ~VarianceDecomposition.training
+   
+   

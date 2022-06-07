@@ -66,7 +66,7 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../../reference/index.html">
-  API Reference
+  API reference
  </a>
 </li>
 
@@ -137,7 +137,7 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DotProductAttention&quot;</span><span class="p">,</span> <span class="s2">&quot;SelfAttention&quot;</span><span class="p">,</span> <span class="s2">&quot;SelfMultiheadAttention&quot;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="DotProductAttention"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.DotProductAttention.html#pytorch_extra_mhirano.nn.DotProductAttention">[docs]</a><span class="k">class</span> <span class="nc">DotProductAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="DotProductAttention"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.DotProductAttention.html#pytorch_extra_mhirano.nn.DotProductAttention">[docs]</a><span class="k">class</span> <span class="nc">DotProductAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;DotProductAttention.</span>
 
 <span class="sd">    .. math::</span>
@@ -171,7 +171,7 @@
 <span class="sd">        &gt;&gt;&gt; attn_output, attn_output_weights = attn(query, key, value)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="DotProductAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.DotProductAttention.html#pytorch_extra_mhirano.nn.DotProductAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="DotProductAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.DotProductAttention.html#pytorch_extra_mhirano.nn.DotProductAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">qdim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">output_dim</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -336,7 +336,7 @@
         <span class="k">return</span> <span class="n">mask</span></div>
 
 
-<div class="viewcode-block" id="SelfAttention"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.SelfAttention.html#pytorch_extra_mhirano.nn.SelfAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="SelfAttention"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.SelfAttention.html#pytorch_extra_mhirano.nn.SelfAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Self Attention module using DotProductAttention</span>
 
 <span class="sd">    Args:</span>
@@ -353,7 +353,7 @@
 <span class="sd">        scaled: If ``True``, this performs as scaled dot product attention</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="SelfAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.SelfAttention.html#pytorch_extra_mhirano.nn.SelfAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="SelfAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.SelfAttention.html#pytorch_extra_mhirano.nn.SelfAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">qdim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
@@ -398,7 +398,7 @@
         <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SelfMultiheadAttention"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html#pytorch_extra_mhirano.nn.SelfMultiheadAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfMultiheadAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="SelfMultiheadAttention"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html#pytorch_extra_mhirano.nn.SelfMultiheadAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfMultiheadAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Self Attention module using torch.nn.MultiheadAttention</span>
 
 <span class="sd">    Args:</span>
@@ -416,7 +416,7 @@
 <span class="sd">            as (batch, seq, feature). Default: ``False`` (seq, batch, feature)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="SelfMultiheadAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html#pytorch_extra_mhirano.nn.SelfMultiheadAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="SelfMultiheadAttention.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html#pytorch_extra_mhirano.nn.SelfMultiheadAttention.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>

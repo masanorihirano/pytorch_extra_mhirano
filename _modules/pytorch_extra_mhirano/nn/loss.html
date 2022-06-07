@@ -66,7 +66,7 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../../reference/index.html">
-  API Reference
+  API reference
  </a>
 </li>
 
@@ -134,8 +134,8 @@
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;JSDivLoss&quot;</span><span class="p">,</span> <span class="s2">&quot;KLDivLoss&quot;</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="KLDivLoss"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.KLDivLoss.html#pytorch_extra_mhirano.nn.KLDivLoss">[docs]</a><span class="k">class</span> <span class="nc">KLDivLoss</span><span class="p">(</span><span class="n">_Loss</span><span class="p">):</span>
-<div class="viewcode-block" id="KLDivLoss.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.KLDivLoss.html#pytorch_extra_mhirano.nn.KLDivLoss.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="KLDivLoss"><a class="viewcode-back" href="../../../reference/generated/nn/loss/pytorch_extra_mhirano.nn.KLDivLoss.html#pytorch_extra_mhirano.nn.KLDivLoss">[docs]</a><span class="k">class</span> <span class="nc">KLDivLoss</span><span class="p">(</span><span class="n">_Loss</span><span class="p">):</span>
+<div class="viewcode-block" id="KLDivLoss.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/loss/pytorch_extra_mhirano.nn.KLDivLoss.html#pytorch_extra_mhirano.nn.KLDivLoss.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">size_average</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">reduce</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -148,8 +148,8 @@
         <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">kl_div</span><span class="p">(</span><span class="n">log_input</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">reduction</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="JSDivLoss"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.JSDivLoss.html#pytorch_extra_mhirano.nn.JSDivLoss">[docs]</a><span class="k">class</span> <span class="nc">JSDivLoss</span><span class="p">(</span><span class="n">_Loss</span><span class="p">):</span>
-<div class="viewcode-block" id="JSDivLoss.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.JSDivLoss.html#pytorch_extra_mhirano.nn.JSDivLoss.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="JSDivLoss"><a class="viewcode-back" href="../../../reference/generated/nn/loss/pytorch_extra_mhirano.nn.JSDivLoss.html#pytorch_extra_mhirano.nn.JSDivLoss">[docs]</a><span class="k">class</span> <span class="nc">JSDivLoss</span><span class="p">(</span><span class="n">_Loss</span><span class="p">):</span>
+<div class="viewcode-block" id="JSDivLoss.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/loss/pytorch_extra_mhirano.nn.JSDivLoss.html#pytorch_extra_mhirano.nn.JSDivLoss.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">size_average</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">reduce</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>

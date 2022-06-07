@@ -9,29 +9,30 @@
     <title>pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition &#8212; pytorch_extra_mhirano  documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="pytorch_extra_mhirano.nn.SumLayer" href="pytorch_extra_mhirano.nn.SumLayer.html" />
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="pytorch_extra_mhirano.experimental.variance_decomposition.VarianceDecomposition" href="pytorch_extra_mhirano.experimental.variance_decomposition.VarianceDecomposition.html" />
+    <link rel="prev" title="pytorch_extra_mhirano.nn.SumLayer" href="../../nn/sum/pytorch_extra_mhirano.nn.SumLayer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -49,7 +50,7 @@
   <div id="navbar-start">
     
     
-<a class="navbar-brand" href="../../index.html">
+<a class="navbar-brand" href="../../../../index.html">
 <p class="title">pytorch_extra_mhirano</p>
 </a>
 
@@ -67,8 +68,8 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../index.html">
-  API Reference
+ <a class="reference internal nav-link" href="../../../index.html">
+  API reference
  </a>
 </li>
 
@@ -97,74 +98,74 @@
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
             <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.DotProductAttention.html">
+  <a class="reference internal" href="../../nn/attention/pytorch_extra_mhirano.nn.DotProductAttention.html">
    pytorch_extra_mhirano.nn.DotProductAttention
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.SelfAttention.html">
+  <a class="reference internal" href="../../nn/attention/pytorch_extra_mhirano.nn.SelfAttention.html">
    pytorch_extra_mhirano.nn.SelfAttention
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.SelfMultiheadAttention.html">
+  <a class="reference internal" href="../../nn/attention/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html">
    pytorch_extra_mhirano.nn.SelfMultiheadAttention
   </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.JSDivLoss.html">
+  <a class="reference internal" href="../../nn/loss/pytorch_extra_mhirano.nn.JSDivLoss.html">
    pytorch_extra_mhirano.nn.JSDivLoss
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.KLDivLoss.html">
+  <a class="reference internal" href="../../nn/loss/pytorch_extra_mhirano.nn.KLDivLoss.html">
    pytorch_extra_mhirano.nn.KLDivLoss
   </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.PositionalEncoding.html">
+  <a class="reference internal" href="../../nn/pe/pytorch_extra_mhirano.nn.PositionalEncoding.html">
    pytorch_extra_mhirano.nn.PositionalEncoding
   </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.LaplacianPyramidLayer.html">
+  <a class="reference internal" href="../../nn/pyramid/pytorch_extra_mhirano.nn.LaplacianPyramidLayer.html">
    pytorch_extra_mhirano.nn.LaplacianPyramidLayer
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.PyramidDown.html">
+  <a class="reference internal" href="../../nn/pyramid/pytorch_extra_mhirano.nn.PyramidDown.html">
    pytorch_extra_mhirano.nn.PyramidDown
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.PyramidUp.html">
+  <a class="reference internal" href="../../nn/pyramid/pytorch_extra_mhirano.nn.PyramidUp.html">
    pytorch_extra_mhirano.nn.PyramidUp
   </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.ResidualBlock.html">
+  <a class="reference internal" href="../../nn/residual/pytorch_extra_mhirano.nn.ResidualBlock.html">
    pytorch_extra_mhirano.nn.ResidualBlock
   </a>
  </li>
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="pytorch_extra_mhirano.nn.SumLayer.html">
+  <a class="reference internal" href="../../nn/sum/pytorch_extra_mhirano.nn.SumLayer.html">
    pytorch_extra_mhirano.nn.SumLayer
   </a>
  </li>
@@ -173,6 +174,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pytorch_extra_mhirano.experimental.variance_decomposition.VarianceDecomposition.html">
+   pytorch_extra_mhirano.experimental.variance_decomposition.VarianceDecomposition
   </a>
  </li>
 </ul>
@@ -218,7 +224,7 @@
 <h1>pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition<a class="headerlink" href="#pytorch-extra-mhirano-experimental-variance-decomposition-variance-decomposition" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition">
-<span class="sig-prename descclassname"><span class="pre">pytorch_extra_mhirano.experimental.variance_decomposition.</span></span><span class="sig-name descname"><span class="pre">variance_decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rcond</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_intercept</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/pytorch_extra_mhirano/experimental/variance_decomposition.html#variance_decomposition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pytorch_extra_mhirano.experimental.variance_decomposition.</span></span><span class="sig-name descname"><span class="pre">variance_decomposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inputs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rcond</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_intercept</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../../../_modules/pytorch_extra_mhirano/experimental/variance_decomposition.html#variance_decomposition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytorch_extra_mhirano.experimental.variance_decomposition.variance_decomposition" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -247,12 +253,19 @@ coefficients (torch.Tensor): D or L x D. Coefficient for each factors.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="pytorch_extra_mhirano.nn.SumLayer.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../../nn/sum/pytorch_extra_mhirano.nn.SumLayer.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">pytorch_extra_mhirano.nn.SumLayer</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="pytorch_extra_mhirano.experimental.variance_decomposition.VarianceDecomposition.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pytorch_extra_mhirano.experimental.variance_decomposition.VarianceDecomposition</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
               
@@ -263,7 +276,7 @@ coefficients (torch.Tensor): D or L x D. Coefficient for each factors.</p>
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 <footer class="footer mt-5 mt-md-0">
   <div class="container">
     

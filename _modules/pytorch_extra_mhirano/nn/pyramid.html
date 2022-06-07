@@ -66,7 +66,7 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../../reference/index.html">
-  API Reference
+  API reference
  </a>
 </li>
 
@@ -134,8 +134,8 @@
 <span class="c1"># ref. https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_pyramids/py_pyramids.html</span>
 
 
-<div class="viewcode-block" id="PyramidDown"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.PyramidDown.html#pytorch_extra_mhirano.nn.PyramidDown">[docs]</a><span class="k">class</span> <span class="nc">PyramidDown</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<div class="viewcode-block" id="PyramidDown.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.PyramidDown.html#pytorch_extra_mhirano.nn.PyramidDown.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="PyramidDown"><a class="viewcode-back" href="../../../reference/generated/nn/pyramid/pytorch_extra_mhirano.nn.PyramidDown.html#pytorch_extra_mhirano.nn.PyramidDown">[docs]</a><span class="k">class</span> <span class="nc">PyramidDown</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="PyramidDown.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/pyramid/pytorch_extra_mhirano.nn.PyramidDown.html#pytorch_extra_mhirano.nn.PyramidDown.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PyramidDown</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="c1"># [out_ch, in_ch, .., ..]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span>
@@ -162,8 +162,8 @@
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="PyramidUp"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.PyramidUp.html#pytorch_extra_mhirano.nn.PyramidUp">[docs]</a><span class="k">class</span> <span class="nc">PyramidUp</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<div class="viewcode-block" id="PyramidUp.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.PyramidUp.html#pytorch_extra_mhirano.nn.PyramidUp.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="PyramidUp"><a class="viewcode-back" href="../../../reference/generated/nn/pyramid/pytorch_extra_mhirano.nn.PyramidUp.html#pytorch_extra_mhirano.nn.PyramidUp">[docs]</a><span class="k">class</span> <span class="nc">PyramidUp</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="PyramidUp.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/pyramid/pytorch_extra_mhirano.nn.PyramidUp.html#pytorch_extra_mhirano.nn.PyramidUp.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PyramidUp</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="c1"># [out_ch, in_ch, .., ..]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span>
@@ -191,8 +191,8 @@
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="LaplacianPyramidLayer"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.LaplacianPyramidLayer.html#pytorch_extra_mhirano.nn.LaplacianPyramidLayer">[docs]</a><span class="k">class</span> <span class="nc">LaplacianPyramidLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<div class="viewcode-block" id="LaplacianPyramidLayer.__init__"><a class="viewcode-back" href="../../../reference/generated/pytorch_extra_mhirano.nn.LaplacianPyramidLayer.html#pytorch_extra_mhirano.nn.LaplacianPyramidLayer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="LaplacianPyramidLayer"><a class="viewcode-back" href="../../../reference/generated/nn/pyramid/pytorch_extra_mhirano.nn.LaplacianPyramidLayer.html#pytorch_extra_mhirano.nn.LaplacianPyramidLayer">[docs]</a><span class="k">class</span> <span class="nc">LaplacianPyramidLayer</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="LaplacianPyramidLayer.__init__"><a class="viewcode-back" href="../../../reference/generated/nn/pyramid/pytorch_extra_mhirano.nn.LaplacianPyramidLayer.html#pytorch_extra_mhirano.nn.LaplacianPyramidLayer.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">LaplacianPyramidLayer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pyramid_down</span> <span class="o">=</span> <span class="n">PyramidDown</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pyramid_up</span> <span class="o">=</span> <span class="n">PyramidUp</span><span class="p">()</span></div>
