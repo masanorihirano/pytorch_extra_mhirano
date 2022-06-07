@@ -61,7 +61,7 @@ class VarianceDecompositionContextManagerFirst:
         self.parent.enabled_analysis_first = True
         self.parent.analysis_init()
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:  # type: ignore
         self.parent.enabled_analysis_first = False
         self.parent.analysis_first_end()
 
@@ -73,7 +73,7 @@ class VarianceDecompositionContextManagerSecond:
     def __enter__(self) -> None:
         self.parent.enabled_analysis_second = True
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:  # type: ignore
         self.parent.analysis_second_end()
         self.parent.enabled_analysis_second = False
 
