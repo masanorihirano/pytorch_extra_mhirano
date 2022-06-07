@@ -5,7 +5,6 @@ from typing import Tuple
 import pytest
 import torch
 from sklearn.linear_model import LinearRegression
-from statsmodels.tsa.stattools import grangercausalitytests
 from statsmodels.tsa.vector_ar.var_model import VAR
 from torch.testing import assert_close
 
