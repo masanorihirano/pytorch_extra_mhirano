@@ -79,6 +79,12 @@ class VarianceDecompositionContextManagerSecond:
 
 
 class VarianceDecomposition(nn.Module):
+    """Variance decomposition module
+
+    .. Note::
+        This is under development. No additional documentation.
+    """
+
     X_left: torch.Tensor
     X_right: torch.Tensor
     intercept: torch.Tensor
@@ -169,19 +175,26 @@ class VarianceDecomposition(nn.Module):
         targets: Optional[torch.Tensor] = None,
         rcond: Optional[float] = None,
     ) -> Tuple[Optional[torch.Tensor], torch.Tensor]:
-        """
+        """forward
 
         Args:
-            inputs:
-            targets:
-            rcond:
+            inputs (torch.Tensor): inputs data. B (batch size) x D (Dimension) or B (batch size) x L (input data length) x D (Dimension)
+            targets (torch.Tensor, optional): target data. Usually, teaching data. B x 1. For training, this is required.
+            rcond (float, optional): See https://pytorch.org/docs/stable/generated/torch.linalg.lstsq.html
+            zero_intercept (bool, optional): if True, set intercept to 0.
 
         Returns:
-            residual:
-            model prediction:
+            residual (torch.Tensor, optional): residual of variance decomposition. None when targets is None.
+            model prediction (torch.Tensor): prediction of this model
 
         Notes: Under developing
         """
+        if self.training or self.enabled_analysis_first or self.enabled_analysis_second:
+            batch_size = inputs.size(0)
+            if batch_size < self.inputs_dim * (self.inputs_len or 1) + (
+                0 if self.zero_intercept else 1
+            ):
+                raise AssertionError("batch_size is too small.")
         if self.training:
             if targets is None:
                 raise ValueError(

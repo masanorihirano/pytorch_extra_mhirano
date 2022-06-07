@@ -241,7 +241,7 @@ class TestVarianceDecomposition:
         )
 
     @pytest.mark.parametrize(
-        "size", [(4, None, 2), (8, 2, 3), (5, None, 3), (33, 5, 6)]
+        "size", [(8, None, 2), (16, 2, 3), (10, None, 3), (66, 5, 6)]
     )
     @pytest.mark.parametrize("zero_intercept", [True, False])
     def test_enable_analysis(
@@ -276,9 +276,19 @@ class TestVarianceDecomposition:
         with vd.enable_analysis_second_step():
             vd.forward(inputs=inputs, targets=target)
         with vd.enable_analysis_first_step():
-            vd.forward(inputs=inputs, targets=target)
+            vd.forward(
+                inputs=inputs[: batch_size // 2], targets=target[: batch_size // 2]
+            )
+            vd.forward(
+                inputs=inputs[batch_size // 2 :], targets=target[batch_size // 2 :]
+            )
         with vd.enable_analysis_second_step():
-            vd.forward(inputs=inputs, targets=target)
+            vd.forward(
+                inputs=inputs[: batch_size // 2], targets=target[: batch_size // 2]
+            )
+            vd.forward(
+                inputs=inputs[batch_size // 2 :], targets=target[batch_size // 2 :]
+            )
 
         if not zero_intercept:
             model = VAR(X.cpu().numpy())
@@ -300,7 +310,7 @@ class TestVarianceDecomposition:
 
     @pytest.mark.gpu
     @pytest.mark.parametrize(
-        "size", [(4, None, 2), (8, 2, 3), (5, None, 3), (33, 5, 6)]
+        "size", [(8, None, 2), (16, 2, 3), (10, None, 3), (66, 5, 6)]
     )
     @pytest.mark.parametrize("zero_intercept", [True, False])
     def test_enable_analysis_gpu(

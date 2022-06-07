@@ -58,4 +58,4 @@ experimental.variance_decomposition
     :toctree: generated/
 
     experimental.variance_decomposition.variance_decomposition
-
+    experimental.variance_decomposition.VarianceDecomposition
