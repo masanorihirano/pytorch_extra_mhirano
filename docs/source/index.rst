@@ -18,8 +18,10 @@ Install:
    >> import pytorch_extra_mhirano as pem
 
 |
-
+API
+===================
 .. toctree::
    :maxdepth: 2
+   :caption: API
 
    reference/index
