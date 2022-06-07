@@ -5,6 +5,7 @@ from typing import Tuple
 import pytest
 import torch
 from sklearn.linear_model import LinearRegression
+from statsmodels.tsa.vector_ar.var_model import VAR
 from torch.testing import assert_close
 
 from pytorch_extra_mhirano.experimental.variance_decomposition import (
@@ -236,4 +237,84 @@ class TestVarianceDecomposition:
             zero_intercept=zero_intercept,
             n_batch=n_batch,
             device=torch.device("cuda"),
+        )
+
+    @pytest.mark.parametrize(
+        "size", [(8, None, 2), (16, 2, 3), (10, None, 3), (66, 5, 6)]
+    )
+    @pytest.mark.parametrize("zero_intercept", [True, False])
+    def test_enable_analysis(
+        self,
+        size: Tuple[int, Optional[int], int],
+        zero_intercept: bool,
+        device: torch.device = torch.device("cpu"),
+    ) -> None:
+        batch_size, input_len, input_dim = size
+        vd = VarianceDecomposition(
+            inputs_dim=input_dim, inputs_len=input_len, zero_intercept=zero_intercept
+        ).to(device)
+        torch.manual_seed(42)
+        X = torch.rand([batch_size + (input_len or 1), input_dim]).to(device)
+        inputs = torch.stack(
+            [X[i : i + (input_len or 1), :].squeeze() for i in range(batch_size)], dim=0
+        )
+        target = torch.stack(
+            [
+                X[(input_len or 1) + i : (input_len or 1) + 1 + i, 0]
+                for i in range(batch_size)
+            ],
+            dim=0,
+        )
+        vd.forward(inputs=inputs, targets=target)
+        with pytest.raises(RuntimeError):
+            with vd.enable_analysis_first_step():
+                pass
+        vd.eval()
+        with vd.enable_analysis_first_step():
+            vd.forward(inputs=inputs, targets=target)
+        with vd.enable_analysis_second_step():
+            vd.forward(inputs=inputs, targets=target)
+        with vd.enable_analysis_first_step():
+            vd.forward(
+                inputs=inputs[: batch_size // 2], targets=target[: batch_size // 2]
+            )
+            vd.forward(
+                inputs=inputs[batch_size // 2 :], targets=target[batch_size // 2 :]
+            )
+        with vd.enable_analysis_second_step():
+            vd.forward(
+                inputs=inputs[: batch_size // 2], targets=target[: batch_size // 2]
+            )
+            vd.forward(
+                inputs=inputs[batch_size // 2 :], targets=target[batch_size // 2 :]
+            )
+
+        if not zero_intercept:
+            model = VAR(X.cpu().numpy())
+            results = model.fit(input_len, trend=("n" if zero_intercept else "c"))
+            test_results = [
+                results.test_causality(causing=i, caused=0, kind="wald")
+                for i in range(input_dim)
+            ]
+            statistics = [test_results[i].test_statistic for i in range(input_dim)]
+            pvalues = [test_results[i].pvalue for i in range(input_dim)]
+            assert_close(
+                torch.as_tensor(statistics).to(vd.granger_causality_statistics),
+                vd.granger_causality_statistics,
+            )
+            assert_close(
+                torch.as_tensor(pvalues).to(vd.granger_causality_pvalues),
+                vd.granger_causality_pvalues,
+            )
+
+    @pytest.mark.gpu
+    @pytest.mark.parametrize(
+        "size", [(8, None, 2), (16, 2, 3), (10, None, 3), (66, 5, 6)]
+    )
+    @pytest.mark.parametrize("zero_intercept", [True, False])
+    def test_enable_analysis_gpu(
+        self, size: Tuple[int, Optional[int], int], zero_intercept: bool
+    ) -> None:
+        self.test_enable_analysis(
+            size=size, zero_intercept=zero_intercept, device=torch.device("cuda")
         )
