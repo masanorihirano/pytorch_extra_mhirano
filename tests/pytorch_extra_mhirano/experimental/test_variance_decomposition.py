@@ -240,7 +240,7 @@ class TestVarianceDecomposition:
         )
 
     @pytest.mark.parametrize(
-        "size", [(8, None, 2), (16, 2, 3), (10, None, 3), (66, 5, 6)]
+        "size", [(8, None, 2), (16, 2, 3), (12, None, 3), (70, 5, 6)]
     )
     @pytest.mark.parametrize("zero_intercept", [True, False])
     def test_enable_analysis(
@@ -309,7 +309,7 @@ class TestVarianceDecomposition:
 
     @pytest.mark.gpu
     @pytest.mark.parametrize(
-        "size", [(8, None, 2), (16, 2, 3), (10, None, 3), (66, 5, 6)]
+        "size", [(8, None, 2), (16, 2, 3), (10, None, 3), (70, 5, 6)]
     )
     @pytest.mark.parametrize("zero_intercept", [True, False])
     def test_enable_analysis_gpu(
