@@ -127,6 +127,8 @@ class VarianceDecomposition(nn.Module):
         self.enabled_analysis_second: bool = False
         self.analysis_step: int = 0
         self.granger_causality_statistics: Optional[torch.Tensor] = None
+        self.register_buffer("ssr", torch.zeros(1))
+        self.register_buffer("ssr_lim", torch.zeros(self.inputs_dim))
 
     def update_param(
         self,
@@ -160,8 +162,6 @@ class VarianceDecomposition(nn.Module):
             self.coefficient = A[1:].reshape(self.coefficient_size)
         else:
             self.coefficient = A[:].reshape(self.coefficient_size)
-        self.register_buffer("ssr", torch.zeros(1))
-        self.register_buffer("ssr_lim", torch.zeros(self.inputs_dim))
 
     def forward(
         self,
