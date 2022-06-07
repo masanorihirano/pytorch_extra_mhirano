@@ -257,7 +257,7 @@ class VarianceDecomposition(nn.Module):
         # ToDo: torch.distributions.chi2.Chi2 does not support cdf at v1.11.0
         # chi2 = torch.distributions.chi2.Chi2(df=r)
         self.granger_causality_pvalues = 1 - torch.as_tensor(
-            scipy.stats.chi2.cdf(self.granger_causality_statistics, r)
+            scipy.stats.chi2.cdf(self.granger_causality_statistics.cpu().numpy(), r)
         ).to(self.granger_causality_statistics)
 
         self.analysis_step = 0

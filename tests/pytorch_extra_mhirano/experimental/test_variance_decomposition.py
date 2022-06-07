@@ -240,22 +240,31 @@ class TestVarianceDecomposition:
             device=torch.device("cuda"),
         )
 
+    @pytest.mark.parametrize(
+        "size", [(4, None, 2), (8, 2, 3), (5, None, 3), (33, 5, 6)]
+    )
     @pytest.mark.parametrize("zero_intercept", [True, False])
     def test_enable_analysis(
-        self, zero_intercept: bool, device: torch.device = torch.device("cpu")
+        self,
+        size: Tuple[int, Optional[int], int],
+        zero_intercept: bool,
+        device: torch.device = torch.device("cpu"),
     ) -> None:
-        input_dim, input_len = 5, 2
-        batch_size = 20
+        batch_size, input_len, input_dim = size
         vd = VarianceDecomposition(
             inputs_dim=input_dim, inputs_len=input_len, zero_intercept=zero_intercept
-        )
+        ).to(device)
         torch.manual_seed(42)
-        X = torch.rand([batch_size + input_len, input_dim]).to(device)
+        X = torch.rand([batch_size + (input_len or 1), input_dim]).to(device)
         inputs = torch.stack(
-            [X[i : i + input_len, :] for i in range(batch_size)], dim=0
+            [X[i : i + (input_len or 1), :].squeeze() for i in range(batch_size)], dim=0
         )
         target = torch.stack(
-            [X[input_len + i : input_len + 1 + i, 0] for i in range(batch_size)], dim=0
+            [
+                X[(input_len or 1) + i : (input_len or 1) + 1 + i, 0]
+                for i in range(batch_size)
+            ],
+            dim=0,
         )
         vd.forward(inputs=inputs, targets=target)
         with pytest.raises(RuntimeError):
@@ -288,3 +297,15 @@ class TestVarianceDecomposition:
                 torch.as_tensor(pvalues).to(vd.granger_causality_pvalues),
                 vd.granger_causality_pvalues,
             )
+
+    @pytest.mark.gpu
+    @pytest.mark.parametrize(
+        "size", [(4, None, 2), (8, 2, 3), (5, None, 3), (33, 5, 6)]
+    )
+    @pytest.mark.parametrize("zero_intercept", [True, False])
+    def test_enable_analysis_gpu(
+        self, size: Tuple[int, Optional[int], int], zero_intercept: bool
+    ) -> None:
+        self.test_enable_analysis(
+            size=size, zero_intercept=zero_intercept, device=torch.device("cuda")
+        )
