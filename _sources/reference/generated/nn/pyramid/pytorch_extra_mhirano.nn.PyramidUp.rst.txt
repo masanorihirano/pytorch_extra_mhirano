@@ -31,6 +31,7 @@
       ~PyramidUp.get_parameter
       ~PyramidUp.get_submodule
       ~PyramidUp.half
+      ~PyramidUp.ipu
       ~PyramidUp.load_state_dict
       ~PyramidUp.modules
       ~PyramidUp.named_buffers
@@ -43,6 +44,7 @@
       ~PyramidUp.register_forward_hook
       ~PyramidUp.register_forward_pre_hook
       ~PyramidUp.register_full_backward_hook
+      ~PyramidUp.register_load_state_dict_post_hook
       ~PyramidUp.register_module
       ~PyramidUp.register_parameter
       ~PyramidUp.requires_grad_

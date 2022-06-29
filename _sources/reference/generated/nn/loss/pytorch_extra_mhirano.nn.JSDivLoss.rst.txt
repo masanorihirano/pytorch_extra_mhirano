@@ -31,6 +31,7 @@
       ~JSDivLoss.get_parameter
       ~JSDivLoss.get_submodule
       ~JSDivLoss.half
+      ~JSDivLoss.ipu
       ~JSDivLoss.load_state_dict
       ~JSDivLoss.modules
       ~JSDivLoss.named_buffers
@@ -43,6 +44,7 @@
       ~JSDivLoss.register_forward_hook
       ~JSDivLoss.register_forward_pre_hook
       ~JSDivLoss.register_full_backward_hook
+      ~JSDivLoss.register_load_state_dict_post_hook
       ~JSDivLoss.register_module
       ~JSDivLoss.register_parameter
       ~JSDivLoss.requires_grad_

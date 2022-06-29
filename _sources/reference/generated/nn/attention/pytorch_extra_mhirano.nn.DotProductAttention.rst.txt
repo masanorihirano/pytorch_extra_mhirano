@@ -32,6 +32,7 @@
       ~DotProductAttention.get_parameter
       ~DotProductAttention.get_submodule
       ~DotProductAttention.half
+      ~DotProductAttention.ipu
       ~DotProductAttention.load_state_dict
       ~DotProductAttention.modules
       ~DotProductAttention.named_buffers
@@ -44,6 +45,7 @@
       ~DotProductAttention.register_forward_hook
       ~DotProductAttention.register_forward_pre_hook
       ~DotProductAttention.register_full_backward_hook
+      ~DotProductAttention.register_load_state_dict_post_hook
       ~DotProductAttention.register_module
       ~DotProductAttention.register_parameter
       ~DotProductAttention.requires_grad_

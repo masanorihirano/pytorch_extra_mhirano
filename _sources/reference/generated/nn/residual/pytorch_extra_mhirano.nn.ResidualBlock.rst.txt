@@ -31,6 +31,7 @@
       ~ResidualBlock.get_parameter
       ~ResidualBlock.get_submodule
       ~ResidualBlock.half
+      ~ResidualBlock.ipu
       ~ResidualBlock.load_state_dict
       ~ResidualBlock.modules
       ~ResidualBlock.named_buffers
@@ -43,6 +44,7 @@
       ~ResidualBlock.register_forward_hook
       ~ResidualBlock.register_forward_pre_hook
       ~ResidualBlock.register_full_backward_hook
+      ~ResidualBlock.register_load_state_dict_post_hook
       ~ResidualBlock.register_module
       ~ResidualBlock.register_parameter
       ~ResidualBlock.requires_grad_

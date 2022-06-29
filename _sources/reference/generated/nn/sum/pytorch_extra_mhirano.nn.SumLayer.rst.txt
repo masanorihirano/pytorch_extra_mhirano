@@ -31,6 +31,7 @@
       ~SumLayer.get_parameter
       ~SumLayer.get_submodule
       ~SumLayer.half
+      ~SumLayer.ipu
       ~SumLayer.load_state_dict
       ~SumLayer.modules
       ~SumLayer.named_buffers
@@ -43,6 +44,7 @@
       ~SumLayer.register_forward_hook
       ~SumLayer.register_forward_pre_hook
       ~SumLayer.register_full_backward_hook
+      ~SumLayer.register_load_state_dict_post_hook
       ~SumLayer.register_module
       ~SumLayer.register_parameter
       ~SumLayer.requires_grad_
