@@ -87,3 +87,10 @@ class TestReplayBuffer:
         assert list(results.keys()) == ["data", "data2"]
         assert results["data"].size() == torch.Size([10])
         assert results["data2"].size() == torch.Size([10])
+
+        rb = ReplayBuffer(max_samples=40, torch_compatible=False)
+        assert rb.can_sample(batch_size=1) == False
+        data = {"data": torch.rand(100), "data2": torch.rand(100)}
+        rb.batch_push(samples=data)
+        with pytest.raises(RuntimeError):
+            rb.torch_sample(batch_size=10)
