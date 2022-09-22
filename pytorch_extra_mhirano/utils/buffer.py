@@ -79,7 +79,7 @@ class ReplayBuffer:
     def sample(self, batch_size: int) -> List[Dict]:
         if not self.can_sample(batch_size=batch_size):
             raise AttributeError("Buffer doesn't have enough data to be sampled.")
-        items = random.choices(self.buffer, k=batch_size)
+        items = random.sample(self.buffer, k=batch_size)
         return items
 
     def torch_sample(self, batch_size: int) -> Dict[str, torch.Tensor]:
