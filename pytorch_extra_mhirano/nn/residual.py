@@ -1,7 +1,17 @@
+from typing import Any
 from typing import Optional
 
 import torch
 import torch.nn as nn
+
+
+class Residual(nn.Module):
+    def __init__(self, layers: nn.Module):
+        super(Residual, self).__init__()
+        self.layers = layers
+
+    def forward(self, inputs: torch.Tensor, *args: Any, **kwargs: Any) -> torch.Tensor:
+        return self.layers.forward(inputs, *args, **kwargs) + inputs
 
 
 class ResidualBlock(nn.Module):
@@ -35,9 +45,7 @@ class ResidualBlock(nn.Module):
             )
         )
         layers.append(activation_func)
-        self.layers = nn.Sequential(*layers)
-        self.activation = activation_func
+        self.layers = nn.Sequential(Residual(nn.Sequential(*layers)), activation_func)
 
     def forward(self, inputs: torch.Tensor) -> torch.Tensor:
-        y = self.layers(inputs)
-        return self.activation(y + inputs)
+        return self.layers(inputs)
