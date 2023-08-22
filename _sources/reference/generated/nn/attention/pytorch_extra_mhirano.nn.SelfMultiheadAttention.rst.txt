@@ -44,9 +44,11 @@
       ~SelfMultiheadAttention.register_forward_hook
       ~SelfMultiheadAttention.register_forward_pre_hook
       ~SelfMultiheadAttention.register_full_backward_hook
+      ~SelfMultiheadAttention.register_full_backward_pre_hook
       ~SelfMultiheadAttention.register_load_state_dict_post_hook
       ~SelfMultiheadAttention.register_module
       ~SelfMultiheadAttention.register_parameter
+      ~SelfMultiheadAttention.register_state_dict_pre_hook
       ~SelfMultiheadAttention.requires_grad_
       ~SelfMultiheadAttention.set_extra_state
       ~SelfMultiheadAttention.share_memory
@@ -67,6 +69,7 @@
    .. autosummary::
    
       ~SelfMultiheadAttention.T_destination
+      ~SelfMultiheadAttention.call_super_init
       ~SelfMultiheadAttention.dump_patches
       ~SelfMultiheadAttention.training
    

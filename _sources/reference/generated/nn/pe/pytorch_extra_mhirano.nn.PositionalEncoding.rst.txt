@@ -44,9 +44,11 @@
       ~PositionalEncoding.register_forward_hook
       ~PositionalEncoding.register_forward_pre_hook
       ~PositionalEncoding.register_full_backward_hook
+      ~PositionalEncoding.register_full_backward_pre_hook
       ~PositionalEncoding.register_load_state_dict_post_hook
       ~PositionalEncoding.register_module
       ~PositionalEncoding.register_parameter
+      ~PositionalEncoding.register_state_dict_pre_hook
       ~PositionalEncoding.requires_grad_
       ~PositionalEncoding.set_extra_state
       ~PositionalEncoding.share_memory
@@ -67,6 +69,7 @@
    .. autosummary::
    
       ~PositionalEncoding.T_destination
+      ~PositionalEncoding.call_super_init
       ~PositionalEncoding.dump_patches
       ~PositionalEncoding.pe
       ~PositionalEncoding.training

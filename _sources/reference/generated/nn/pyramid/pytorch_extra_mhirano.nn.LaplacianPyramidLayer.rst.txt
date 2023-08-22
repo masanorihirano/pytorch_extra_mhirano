@@ -44,9 +44,11 @@
       ~LaplacianPyramidLayer.register_forward_hook
       ~LaplacianPyramidLayer.register_forward_pre_hook
       ~LaplacianPyramidLayer.register_full_backward_hook
+      ~LaplacianPyramidLayer.register_full_backward_pre_hook
       ~LaplacianPyramidLayer.register_load_state_dict_post_hook
       ~LaplacianPyramidLayer.register_module
       ~LaplacianPyramidLayer.register_parameter
+      ~LaplacianPyramidLayer.register_state_dict_pre_hook
       ~LaplacianPyramidLayer.requires_grad_
       ~LaplacianPyramidLayer.set_extra_state
       ~LaplacianPyramidLayer.share_memory
@@ -67,6 +69,7 @@
    .. autosummary::
    
       ~LaplacianPyramidLayer.T_destination
+      ~LaplacianPyramidLayer.call_super_init
       ~LaplacianPyramidLayer.dump_patches
       ~LaplacianPyramidLayer.training
    

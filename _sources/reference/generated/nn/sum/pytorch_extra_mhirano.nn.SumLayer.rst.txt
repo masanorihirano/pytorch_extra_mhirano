@@ -44,9 +44,11 @@
       ~SumLayer.register_forward_hook
       ~SumLayer.register_forward_pre_hook
       ~SumLayer.register_full_backward_hook
+      ~SumLayer.register_full_backward_pre_hook
       ~SumLayer.register_load_state_dict_post_hook
       ~SumLayer.register_module
       ~SumLayer.register_parameter
+      ~SumLayer.register_state_dict_pre_hook
       ~SumLayer.requires_grad_
       ~SumLayer.set_extra_state
       ~SumLayer.share_memory
@@ -67,6 +69,7 @@
    .. autosummary::
    
       ~SumLayer.T_destination
+      ~SumLayer.call_super_init
       ~SumLayer.dump_patches
       ~SumLayer.training
    

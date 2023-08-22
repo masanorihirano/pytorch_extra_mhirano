@@ -138,7 +138,7 @@
 
 
 <div class="viewcode-block" id="DotProductAttention"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.DotProductAttention.html#pytorch_extra_mhirano.nn.DotProductAttention">[docs]</a><span class="k">class</span> <span class="nc">DotProductAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;DotProductAttention.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;DotProductAttention.</span>
 
 <span class="sd">    .. math::</span>
 
@@ -226,7 +226,7 @@
         <span class="n">need_weights</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">attn_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Args:</span>
 <span class="sd">            query: Query embeddings of shape :math:`(L, E_q)` for unbatched input, :math:`(L, N, E_q)` when ``batch_first=False``</span>
 <span class="sd">                or :math:`(N, L, E_q)` when ``batch_first=True``, where :math:`L` is the target sequence length,</span>
@@ -324,7 +324,7 @@
             <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">generate_square_subsequent_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sz</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate a square mask for the sequence. The masked positions are filled with float(&#39;-inf&#39;).</span>
+<span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Generate a square mask for the sequence. The masked positions are filled with float(&#39;-inf&#39;).</span>
 <span class="sd">        Unmasked positions are filled with float(0.0).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">sz</span><span class="p">,</span> <span class="n">sz</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -337,7 +337,7 @@
 
 
 <div class="viewcode-block" id="SelfAttention"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.SelfAttention.html#pytorch_extra_mhirano.nn.SelfAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Self Attention module using DotProductAttention</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Self Attention module using DotProductAttention</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        qdim: dimension of the model, i.e., dimension of Q</span>
@@ -399,7 +399,7 @@
 
 
 <div class="viewcode-block" id="SelfMultiheadAttention"><a class="viewcode-back" href="../../../reference/generated/nn/attention/pytorch_extra_mhirano.nn.SelfMultiheadAttention.html#pytorch_extra_mhirano.nn.SelfMultiheadAttention">[docs]</a><span class="k">class</span> <span class="nc">SelfMultiheadAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Self Attention module using torch.nn.MultiheadAttention</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Self Attention module using torch.nn.MultiheadAttention</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        embed_dim: dimension of the model, i.e., dimension of Q</span>

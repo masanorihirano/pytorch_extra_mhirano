@@ -44,9 +44,11 @@
       ~PyramidUp.register_forward_hook
       ~PyramidUp.register_forward_pre_hook
       ~PyramidUp.register_full_backward_hook
+      ~PyramidUp.register_full_backward_pre_hook
       ~PyramidUp.register_load_state_dict_post_hook
       ~PyramidUp.register_module
       ~PyramidUp.register_parameter
+      ~PyramidUp.register_state_dict_pre_hook
       ~PyramidUp.requires_grad_
       ~PyramidUp.set_extra_state
       ~PyramidUp.share_memory
@@ -67,6 +69,7 @@
    .. autosummary::
    
       ~PyramidUp.T_destination
+      ~PyramidUp.call_super_init
       ~PyramidUp.dump_patches
       ~PyramidUp.training
    

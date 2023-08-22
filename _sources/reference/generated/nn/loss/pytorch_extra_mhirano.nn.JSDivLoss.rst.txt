@@ -44,9 +44,11 @@
       ~JSDivLoss.register_forward_hook
       ~JSDivLoss.register_forward_pre_hook
       ~JSDivLoss.register_full_backward_hook
+      ~JSDivLoss.register_full_backward_pre_hook
       ~JSDivLoss.register_load_state_dict_post_hook
       ~JSDivLoss.register_module
       ~JSDivLoss.register_parameter
+      ~JSDivLoss.register_state_dict_pre_hook
       ~JSDivLoss.requires_grad_
       ~JSDivLoss.set_extra_state
       ~JSDivLoss.share_memory
@@ -67,6 +69,7 @@
    .. autosummary::
    
       ~JSDivLoss.T_destination
+      ~JSDivLoss.call_super_init
       ~JSDivLoss.dump_patches
       ~JSDivLoss.reduction
       ~JSDivLoss.training

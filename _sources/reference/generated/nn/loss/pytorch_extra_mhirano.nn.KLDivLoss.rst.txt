@@ -44,9 +44,11 @@
       ~KLDivLoss.register_forward_hook
       ~KLDivLoss.register_forward_pre_hook
       ~KLDivLoss.register_full_backward_hook
+      ~KLDivLoss.register_full_backward_pre_hook
       ~KLDivLoss.register_load_state_dict_post_hook
       ~KLDivLoss.register_module
       ~KLDivLoss.register_parameter
+      ~KLDivLoss.register_state_dict_pre_hook
       ~KLDivLoss.requires_grad_
       ~KLDivLoss.set_extra_state
       ~KLDivLoss.share_memory
@@ -67,6 +69,7 @@
    .. autosummary::
    
       ~KLDivLoss.T_destination
+      ~KLDivLoss.call_super_init
       ~KLDivLoss.dump_patches
       ~KLDivLoss.reduction
       ~KLDivLoss.training

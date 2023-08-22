@@ -44,9 +44,11 @@
       ~SelfAttention.register_forward_hook
       ~SelfAttention.register_forward_pre_hook
       ~SelfAttention.register_full_backward_hook
+      ~SelfAttention.register_full_backward_pre_hook
       ~SelfAttention.register_load_state_dict_post_hook
       ~SelfAttention.register_module
       ~SelfAttention.register_parameter
+      ~SelfAttention.register_state_dict_pre_hook
       ~SelfAttention.requires_grad_
       ~SelfAttention.set_extra_state
       ~SelfAttention.share_memory
@@ -67,6 +69,7 @@
    .. autosummary::
    
       ~SelfAttention.T_destination
+      ~SelfAttention.call_super_init
       ~SelfAttention.dump_patches
       ~SelfAttention.training
    

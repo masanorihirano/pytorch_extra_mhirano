@@ -45,9 +45,11 @@
       ~DotProductAttention.register_forward_hook
       ~DotProductAttention.register_forward_pre_hook
       ~DotProductAttention.register_full_backward_hook
+      ~DotProductAttention.register_full_backward_pre_hook
       ~DotProductAttention.register_load_state_dict_post_hook
       ~DotProductAttention.register_module
       ~DotProductAttention.register_parameter
+      ~DotProductAttention.register_state_dict_pre_hook
       ~DotProductAttention.requires_grad_
       ~DotProductAttention.set_extra_state
       ~DotProductAttention.share_memory
@@ -68,6 +70,7 @@
    .. autosummary::
    
       ~DotProductAttention.T_destination
+      ~DotProductAttention.call_super_init
       ~DotProductAttention.dump_patches
       ~DotProductAttention.training
    
