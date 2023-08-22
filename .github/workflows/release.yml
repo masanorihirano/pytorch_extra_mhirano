@@ -53,9 +53,9 @@ jobs:
           poetry install
       - name: Test
         run: |
-          poetry run black --check --diff --quiet --skip-magic-trailing-comma pytorch_extra_mhirano
-          poetry run isort --check --force-single-line-imports --quiet pytorch_extra_mhirano
-          poetry run mypy pytorch_extra_mhirano
+          poetry run black --check --diff --quiet --skip-magic-trailing-comma .
+          poetry run isort --check --force-single-line-imports --quiet .
+          poetry run mypy .
           poetry run pytest -m "not gpu" tests/
   
   releasetest:
