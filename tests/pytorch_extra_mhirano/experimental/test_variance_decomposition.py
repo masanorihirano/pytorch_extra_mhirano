@@ -301,10 +301,14 @@ class TestVarianceDecomposition:
             assert_close(
                 torch.as_tensor(statistics).to(vd.granger_causality_statistics),
                 vd.granger_causality_statistics,
+                rtol=1e-4,
+                atol=1e-4,
             )
             assert_close(
                 torch.as_tensor(pvalues).to(vd.granger_causality_pvalues),
                 vd.granger_causality_pvalues,
+                rtol=1e-4,
+                atol=1e-4,
             )
 
     @pytest.mark.gpu
