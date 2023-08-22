@@ -1,19 +1,18 @@
 [tool.poetry]
 name = "pytorch_extra_mhirano"
-version = "0.1.7"
+version = "0.1.8"
 description = ""
 authors = ["Masanori HIRANO <masa.hirano.1996@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.11"
-torch = ">=1.9.0,<2.0.0"
+python = "^3.8"
+torch = ">=1.9.0,<3.0.0,!=2.0.1"
 scipy = "^1.8.1"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
 isort = "^5.10.1"
-mypy = "^0.931"
 tox = "^3.24.5"
 pytest = "^7.0.1"
 pytest-cov = "^3.0.0"
@@ -21,18 +20,39 @@ Sphinx = "^4.4.0"
 pydata-sphinx-theme = "^0.8.0"
 scikit-learn = "^1.1.1"
 statsmodels = "^0.13.2"
+mypy = "^1.5.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
 [tool.black]
 skip-magic-trailing-comma = true
+exclude = [
+    ".git",
+    "__pycache__",
+    "docs",
+    "build",
+    "dist",
+    "examples",
+    ".venv",
+    "__init__.py"
+]
 
 [tool.isort]
 profile = 'black'
 force_single_line = true
+skip = [
+    ".git",
+    "__pycache__",
+    "docs",
+    "build",
+    "dist",
+    "examples",
+    ".venv",
+    "tests/examples"
+]
 
 [tool.mypy]
 disallow_untyped_defs = true
 ignore_missing_imports = true
-
